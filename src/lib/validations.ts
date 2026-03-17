@@ -50,8 +50,12 @@ export const profileUpdateSchema = z.object({
 
 // Booking schemas
 export const bookingSchema = z.object({
+  date: z.string().datetime('Invalid date format'),
   timeSlotId: z.string().uuid('Invalid time slot ID'),
-  specialRequests: sanitizedString(z.string().max(500, 'Special requests too long')).optional(),
+  name: sanitizedString(z.string().min(2, 'Name must be at least 2 characters').max(50, 'Name too long')),
+  email: z.string().email('Invalid email address'),
+  phone: z.string().regex(/^[0-9]{10}$/, 'Phone number must be 10 digits'),
+  notes: sanitizedString(z.string().max(500, 'Special requests too long')).optional(),
 });
 
 // Contact form schema
@@ -133,11 +137,7 @@ export const validateInput = <T>(schema: z.ZodSchema<T>, data: unknown): { succe
     if (error instanceof z.ZodError) {
       return {
         success: false,
-<<<<<<< HEAD
-        errors: error.errors?.map(err => `${err.path.join('.')}: ${err.message}`) || ['Validation error'],
-=======
         errors: error.issues?.map((err: any) => `${err.path.join('.')}: ${err.message}`) || ['Validation error'],
->>>>>>> origin/feature/2-homepage-implementation
       };
     }
     return {
@@ -164,11 +164,7 @@ export const validateEnv = () => {
 
   const result = envSchema.safeParse(env);
   if (!result.success) {
-<<<<<<< HEAD
-    throw new Error(`Invalid environment variables: ${result.error.errors.map(err => err.message).join(', ')}`);
-=======
     throw new Error(`Invalid environment variables: ${result.error.issues.map((err: any) => err.message).join(', ')}`);
->>>>>>> origin/feature/2-homepage-implementation
   }
   return result.data;
 };
