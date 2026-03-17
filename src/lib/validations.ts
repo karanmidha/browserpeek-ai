@@ -8,9 +8,17 @@ const sanitizedString = (schema: z.ZodString) =>
     if (typeof window === 'undefined') {
       return trimmed.replace(/<[^>]*>/g, '');
     }
-    // In browser, use DOMPurify
-    const DOMPurify = require('dompurify');
-    return DOMPurify.sanitize(trimmed);
+    // In browser, dynamically import DOMPurify
+    try {
+      // Use dynamic import for DOMPurify to avoid Node.js issues
+      if (typeof window !== 'undefined' && (window as any).DOMPurify) {
+        return (window as any).DOMPurify.sanitize(trimmed);
+      }
+      // Fallback to basic sanitization
+      return trimmed.replace(/<[^>]*>/g, '');
+    } catch {
+      return trimmed.replace(/<[^>]*>/g, '');
+    }
   });
 
 const phoneRegex = /^\+?[\d\s\-\(\)]+$/;
@@ -125,7 +133,11 @@ export const validateInput = <T>(schema: z.ZodSchema<T>, data: unknown): { succe
     if (error instanceof z.ZodError) {
       return {
         success: false,
+<<<<<<< HEAD
         errors: error.errors?.map(err => `${err.path.join('.')}: ${err.message}`) || ['Validation error'],
+=======
+        errors: error.issues?.map((err: any) => `${err.path.join('.')}: ${err.message}`) || ['Validation error'],
+>>>>>>> origin/feature/2-homepage-implementation
       };
     }
     return {
@@ -152,7 +164,11 @@ export const validateEnv = () => {
 
   const result = envSchema.safeParse(env);
   if (!result.success) {
+<<<<<<< HEAD
     throw new Error(`Invalid environment variables: ${result.error.errors.map(err => err.message).join(', ')}`);
+=======
+    throw new Error(`Invalid environment variables: ${result.error.issues.map((err: any) => err.message).join(', ')}`);
+>>>>>>> origin/feature/2-homepage-implementation
   }
   return result.data;
 };
