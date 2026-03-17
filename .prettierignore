@@ -1,0 +1,9 @@
+node_modules/
+dist/
+.vite/
+coverage/
+*.min.js
+*.min.css
+.eslintcache
+.env*
+!.env.example
