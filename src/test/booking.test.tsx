@@ -1,5 +1,5 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest';
-import { render, screen, fireEvent, waitFor } from '@testing-library/react';
+import { render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import DateSelector from '../components/booking/DateSelector';
 import TimeSlotSelector from '../components/booking/TimeSlotSelector';
@@ -543,7 +543,7 @@ describe('Security Validation', () => {
 
     // Test tampering scenario
     const tamperedPrice = 1;
-    const isTamperedValid = tamperedPrice === serverPrice;
+    const isTamperedValid = (tamperedPrice as number) === serverPrice;
 
     expect(isTamperedValid).toBe(false);
   });

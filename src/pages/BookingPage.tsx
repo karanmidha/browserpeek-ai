@@ -50,19 +50,18 @@ const BookingPage: React.FC = () => {
       // Step 1: Create booking record with "pending" status
       const bookingId = await createPendingBooking(bookingData);
 
-      // Step 2: Create RazorPay order
+      // Step 2: Create RazorPay order with secure backend validation
       const orderResponse = await createRazorPayOrder({
+        slotId: selectedSlot.id,
+        practiceStyleId: selectedSlot.practice_style?.id || '',
         amount: selectedSlot.practice_style?.price || 0,
-        receipt: `booking_${bookingId}`,
-        notes: {
-          bookingId,
-          timeSlotId: selectedSlot.id,
-          practiceStyle: selectedSlot.practice_style?.name || '',
-        },
+        userEmail: bookingData.email,
+        userName: bookingData.name,
       });
 
-      // Step 3: Open RazorPay checkout
+      // Step 3: Open RazorPay checkout with secure key from backend
       await openRazorPayCheckout({
+        key: orderResponse.razorPayKeyId,
         amount: orderResponse.amount,
         currency: orderResponse.currency,
         name: 'OmYogVidya',
@@ -71,7 +70,7 @@ const BookingPage: React.FC = () => {
         handler: async (response) => {
           try {
             // Step 4: Verify payment and confirm booking
-            await handlePaymentSuccess(response, bookingId);
+            await handlePaymentSuccess(response, bookingId, bookingData);
             setBookingSuccess(true);
           } catch (error) {
             console.error('Payment verification failed:', error);
@@ -136,17 +135,20 @@ const BookingPage: React.FC = () => {
       razorpay_order_id: string;
       razorpay_signature: string;
     },
-    bookingId: string
+    bookingId: string,
+    bookingData: BookingData
   ) => {
-    // Step 1: Verify payment signature
-    const isVerified = await verifyPaymentSignature(
+    // Step 1: Verify payment signature using secure backend
+    const verificationResult = await verifyPaymentSignature(
       response.razorpay_payment_id,
       response.razorpay_order_id,
-      response.razorpay_signature
+      response.razorpay_signature,
+      selectedSlot?.id || '',
+      bookingData.email
     );
 
-    if (!isVerified) {
-      throw new Error('Payment signature verification failed');
+    if (!verificationResult.success) {
+      throw new Error(verificationResult.error || 'Payment signature verification failed');
     }
 
     // Step 2: Update booking status to "confirmed"
