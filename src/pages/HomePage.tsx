@@ -38,7 +38,7 @@ const HomePage: React.FC = () => {
       <section className="relative bg-gradient-to-br from-primary-200 via-primary-100 to-accent-100 min-h-screen flex items-center">
         <div className="absolute inset-0 overflow-hidden">
           <img
-            src="/src/assets/hero.png"
+            src="/hero.png"
             alt="Yoga instructor in peaceful meditation pose"
             className="w-full h-full object-cover opacity-30"
           />
@@ -115,7 +115,7 @@ const HomePage: React.FC = () => {
                 <div className="relative">
                   <div className="absolute -inset-4 bg-gradient-to-br from-accent-200 to-secondary-200 rounded-2xl transform rotate-3"></div>
                   <img
-                    src="/src/assets/hero.png"
+                    src="/hero.png"
                     alt="Priya Sharma - Certified Yoga Instructor"
                     className="relative w-full h-96 lg:h-[500px] object-cover rounded-2xl shadow-2xl"
                   />
