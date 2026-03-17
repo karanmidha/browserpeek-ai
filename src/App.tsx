@@ -5,19 +5,46 @@ import BookingPage from './pages/BookingPage';
 import TestimonialsPage from './pages/TestimonialsPage';
 import ContactPage from './pages/ContactPage';
 import AdminPage from './pages/AdminPage';
+import { AdminAuthPage } from './pages/admin/AdminAuthPage';
+import { AdminDashboard } from './pages/admin/AdminDashboard';
+import { AdminCalendar } from './pages/admin/AdminCalendar';
+import { AdminBookings } from './pages/admin/AdminBookings';
+import { AdminTestimonials } from './pages/admin/AdminTestimonials';
+import { AdminInquiries } from './pages/admin/AdminInquiries';
+import { AdminLayout } from './components/admin/AdminLayout';
+import { ProtectedRoute } from './components/admin/ProtectedRoute';
 
 function App() {
   return (
     <Router>
-      <Layout>
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/booking" element={<BookingPage />} />
-          <Route path="/testimonials" element={<TestimonialsPage />} />
-          <Route path="/contact" element={<ContactPage />} />
-          <Route path="/admin" element={<AdminPage />} />
-        </Routes>
-      </Layout>
+      <Routes>
+        {/* Public routes */}
+        <Route path="/" element={<Layout><HomePage /></Layout>} />
+        <Route path="/booking" element={<Layout><BookingPage /></Layout>} />
+        <Route path="/testimonials" element={<Layout><TestimonialsPage /></Layout>} />
+        <Route path="/contact" element={<Layout><ContactPage /></Layout>} />
+        <Route path="/admin" element={<Layout><AdminPage /></Layout>} />
+
+        {/* Admin authentication */}
+        <Route path="/admin/auth" element={<AdminAuthPage />} />
+
+        {/* Protected admin routes */}
+        <Route
+          path="/admin/*"
+          element={
+            <ProtectedRoute>
+              <AdminLayout />
+            </ProtectedRoute>
+          }
+        >
+          <Route path="dashboard" element={<AdminDashboard />} />
+          <Route path="calendar" element={<AdminCalendar />} />
+          <Route path="bookings" element={<AdminBookings />} />
+          <Route path="testimonials" element={<AdminTestimonials />} />
+          <Route path="inquiries" element={<AdminInquiries />} />
+          {/* Additional admin routes will be added here */}
+        </Route>
+      </Routes>
     </Router>
   );
 }
