@@ -50,8 +50,12 @@ export const profileUpdateSchema = z.object({
 
 // Booking schemas
 export const bookingSchema = z.object({
+  date: z.string().datetime('Invalid date format'),
   timeSlotId: z.string().uuid('Invalid time slot ID'),
-  specialRequests: sanitizedString(z.string().max(500, 'Special requests too long')).optional(),
+  name: sanitizedString(z.string().min(2, 'Name must be at least 2 characters').max(50, 'Name too long')),
+  email: z.string().email('Invalid email address'),
+  phone: z.string().regex(/^[0-9]{10}$/, 'Phone number must be 10 digits'),
+  notes: sanitizedString(z.string().max(500, 'Special requests too long')).optional(),
 });
 
 // Contact form schema

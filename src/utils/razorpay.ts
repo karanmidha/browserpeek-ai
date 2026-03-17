@@ -48,12 +48,12 @@ export interface RazorPayResponse {
 }
 
 export interface CreateOrderPayload {
+  slotId: string;
+  practiceStyleId: string;
   amount: number; // Amount in INR (will be converted to paise)
   currency?: string;
-  receipt?: string;
-  notes?: {
-    [key: string]: string;
-  };
+  userEmail: string;
+  userName: string;
 }
 
 export interface OrderResponse {
@@ -95,42 +95,53 @@ export const loadRazorPayScript = (): Promise<boolean> => {
 };
 
 /**
- * Create RazorPay order (to be called from backend)
+ * Create RazorPay order via secure backend API
  */
-export const createRazorPayOrder = async (payload: CreateOrderPayload): Promise<OrderResponse> => {
-  // This would typically be a call to your backend API
-  // For now, we'll return a mock response
-  const mockOrder: OrderResponse = {
-    id: `order_${Date.now()}`,
-    entity: 'order',
-    amount: payload.amount * 100, // Convert to paise
-    amount_paid: 0,
-    amount_due: payload.amount * 100,
-    currency: payload.currency || 'INR',
-    receipt: payload.receipt || `receipt_${Date.now()}`,
-    status: 'created',
-    created_at: Math.floor(Date.now() / 1000),
-  };
+export const createRazorPayOrder = async (payload: CreateOrderPayload): Promise<OrderResponse & { razorPayKeyId: string }> => {
+  const response = await fetch('/api/razorpay/create-order', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(payload),
+  });
 
-  return mockOrder;
+  if (!response.ok) {
+    const errorData = await response.json();
+    throw new Error(errorData.error || 'Failed to create payment order');
+  }
+
+  const data = await response.json();
+
+  if (!data.success) {
+    throw new Error(data.error || 'Order creation failed');
+  }
+
+  return {
+    ...data.order,
+    entity: 'order',
+    amount_paid: 0,
+    amount_due: data.order.amount,
+    created_at: Math.floor(Date.now() / 1000),
+    razorPayKeyId: data.razorPayKeyId,
+  };
 };
 
 /**
  * Open RazorPay checkout
  */
-export const openRazorPayCheckout = async (options: Omit<RazorPayOptions, 'key'>): Promise<void> => {
+export const openRazorPayCheckout = async (options: RazorPayOptions): Promise<void> => {
   const scriptLoaded = await loadRazorPayScript();
 
   if (!scriptLoaded) {
     throw new Error('Failed to load RazorPay script');
   }
 
-  if (!RAZORPAY_KEY_ID) {
-    throw new Error('RazorPay Key ID not configured');
+  if (!options.key) {
+    throw new Error('RazorPay Key ID not provided');
   }
 
   const razorPay = new window.Razorpay({
-    key: RAZORPAY_KEY_ID,
     ...options,
     theme: {
       color: '#3D5A40', // OmYogVidya brand color
@@ -142,23 +153,51 @@ export const openRazorPayCheckout = async (options: Omit<RazorPayOptions, 'key'>
 };
 
 /**
- * Verify payment signature (to be done on backend)
+ * Verify payment signature via secure backend API
  */
 export const verifyPaymentSignature = async (
   paymentId: string,
   orderId: string,
-  signature: string
-): Promise<boolean> => {
-  // This should be implemented on your backend for security
-  // For now, we'll return true (NEVER do this in production)
-  console.log('Verifying payment signature:', { paymentId, orderId, signature });
+  signature: string,
+  slotId: string,
+  userEmail: string
+): Promise<{ success: boolean; bookingId?: string; error?: string }> => {
+  try {
+    const response = await fetch('/api/razorpay/verify-payment', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        razorpay_payment_id: paymentId,
+        razorpay_order_id: orderId,
+        razorpay_signature: signature,
+        slotId,
+        userEmail,
+      }),
+    });
 
-  // In a real implementation, you would:
-  // 1. Send these details to your backend
-  // 2. Backend would verify using RazorPay webhook secret
-  // 3. Return verification result
+    const data = await response.json();
 
-  return true;
+    if (!response.ok) {
+      console.error('Payment verification failed:', data);
+      return {
+        success: false,
+        error: data.error || 'Payment verification failed',
+      };
+    }
+
+    return {
+      success: data.success,
+      bookingId: data.bookingId,
+    };
+  } catch (error) {
+    console.error('Payment verification error:', error);
+    return {
+      success: false,
+      error: 'Network error during payment verification',
+    };
+  }
 };
 
 /**
