@@ -21,7 +21,7 @@ const SESSION_TIMEOUT = 30 * 60 * 1000;
 export class AdminAuth {
   private static instance: AdminAuth;
   private currentSession: AuthSession | null = null;
-  private sessionTimer: NodeJS.Timeout | null = null;
+  private sessionTimer: number | null = null;
 
   private constructor() {
     this.initializeSessionMonitoring();
@@ -139,7 +139,7 @@ export class AdminAuth {
     this.sessionTimer = setTimeout(() => {
       this.signOut();
       alert('Your session has expired. Please sign in again.');
-    }, SESSION_TIMEOUT);
+    }, SESSION_TIMEOUT) as unknown as number;
   }
 
   /**
@@ -188,7 +188,7 @@ export class AdminAuth {
 
         // Check if MFA is enabled
         const { data: factors } = await supabase.auth.mfa.listFactors();
-        if (factors && factors.length > 0) {
+        if (factors && (factors as any)?.all?.length > 0) {
           return {
             success: false,
             requiresMFA: true,
@@ -219,15 +219,15 @@ export class AdminAuth {
   }> {
     try {
       const { data: factors } = await supabase.auth.mfa.listFactors();
-      if (!factors || factors.length === 0) {
+      if (!factors || (factors as any)?.all?.length === 0) {
         return {
           success: false,
           error: 'No MFA factors found',
         };
       }
 
-      const factor = factors[0];
-      const { data, error } = await supabase.auth.mfa.verify({
+      const factor = (factors as any)?.all?.[0];
+      const { error } = await supabase.auth.mfa.verify({
         factorId: factor.id,
         challengeId: factor.challenge_id,
         code: token,

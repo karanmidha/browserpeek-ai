@@ -44,7 +44,7 @@ vi.mock('../../utils/supabase', () => ({
 }));
 
 // Mock IP service
-global.fetch = vi.fn(() =>
+(globalThis as any).fetch = vi.fn(() =>
   Promise.resolve({
     json: () => Promise.resolve({ ip: '127.0.0.1' }),
   }) as any
@@ -244,7 +244,7 @@ describe('Admin Security Features', () => {
   });
 
   it('validates admin role requirement', async () => {
-    const mockUser = {
+    const _mockUser = {
       id: 'user123',
       email: 'user@example.com'
     };

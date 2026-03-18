@@ -275,7 +275,7 @@ export const AdminDashboard: React.FC = () => {
           id: booking.id,
           type: 'booking',
           title: 'New Booking',
-          description: `${booking.user_profiles?.first_name} ${booking.user_profiles?.last_name} booked for ${booking.time_slots?.date}`,
+          description: `${(booking.user_profiles as any)?.first_name} ${(booking.user_profiles as any)?.last_name} booked for ${(booking.time_slots as any)?.date}`,
           timestamp: booking.created_at,
           status: booking.status,
         });
