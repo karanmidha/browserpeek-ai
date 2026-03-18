@@ -44,7 +44,7 @@ vi.mock('../../utils/supabase', () => ({
 }));
 
 // Mock IP service
-global.fetch = vi.fn(() =>
+globalThis.fetch = vi.fn(() =>
   Promise.resolve({
     json: () => Promise.resolve({ ip: '127.0.0.1' }),
   }) as any
@@ -244,11 +244,6 @@ describe('Admin Security Features', () => {
   });
 
   it('validates admin role requirement', async () => {
-    const mockUser = {
-      id: 'user123',
-      email: 'user@example.com'
-    };
-
     const mockSignIn = vi.fn().mockResolvedValue({
       success: false,
       error: 'Access denied: Admin privileges required'

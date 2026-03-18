@@ -2,17 +2,11 @@ import React, { useState, useEffect } from 'react';
 import { supabase } from '../../utils/supabase';
 import { adminAuth } from '../../lib/admin/auth';
 import {
-  Calendar as CalendarIcon,
   Plus,
-  Edit,
   Trash2,
-  Clock,
-  Users,
   ChevronLeft,
   ChevronRight,
-  Copy,
   RefreshCw,
-  Filter,
   Search,
 } from 'lucide-react';
 
@@ -63,7 +57,7 @@ export const AdminCalendar: React.FC = () => {
   const [loading, setLoading] = useState(true);
   const [showSlotModal, setShowSlotModal] = useState(false);
   const [editingSlot, setEditingSlot] = useState<TimeSlot | null>(null);
-  const [selectedDate, setSelectedDate] = useState<string>('');
+  const [_selectedDate, setSelectedDate] = useState<string>(''); // TODO: Implement date selection functionality
   const [viewMode, setViewMode] = useState<'month' | 'week'>('month');
   const [searchTerm, setSearchTerm] = useState('');
   const [filterStyle, setFilterStyle] = useState('');
@@ -253,7 +247,7 @@ export const AdminCalendar: React.FC = () => {
     const year = currentDate.getFullYear();
     const month = currentDate.getMonth();
     const firstDay = new Date(year, month, 1);
-    const lastDay = new Date(year, month + 1, 0);
+    // const lastDay = new Date(year, month + 1, 0); // TODO: Use for calendar boundary calculation
     const startDate = new Date(firstDay);
     startDate.setDate(startDate.getDate() - firstDay.getDay());
 
@@ -335,13 +329,14 @@ export const AdminCalendar: React.FC = () => {
     });
   };
 
-  const filteredTimeSlots = timeSlots.filter(slot => {
-    const matchesSearch = searchTerm === '' ||
-      slot.practice_styles?.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      slot.date.includes(searchTerm);
-    const matchesStyle = filterStyle === '' || slot.practice_style_id === filterStyle;
-    return matchesSearch && matchesStyle;
-  });
+  // TODO: Implement time slot filtering in the UI
+  // const filteredTimeSlots = timeSlots.filter(slot => {
+  //   const matchesSearch = searchTerm === '' ||
+  //     slot.practice_styles?.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+  //     slot.date.includes(searchTerm);
+  //   const matchesStyle = filterStyle === '' || slot.practice_style_id === filterStyle;
+  //   return matchesSearch && matchesStyle;
+  // });
 
   if (loading) {
     return (

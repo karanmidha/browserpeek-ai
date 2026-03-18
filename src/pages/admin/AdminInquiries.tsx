@@ -4,7 +4,6 @@ import { adminAuth } from '../../lib/admin/auth';
 import {
   Mail,
   Search,
-  Filter,
   RefreshCw,
   Eye,
   X,
@@ -14,7 +13,6 @@ import {
   CheckCircle,
   Clock,
   AlertTriangle,
-  Archive,
   Reply,
   Trash2,
 } from 'lucide-react';
