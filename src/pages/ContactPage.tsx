@@ -27,7 +27,13 @@ const ContactPage: React.FC = () => {
                     <label className="block text-secondary-800 font-medium mb-2">
                       Email Address *
                     </label>
-                    <input type="email" className="input" required />
+                    <input
+                      type="email"
+                      className="input"
+                      inputMode="email"
+                      placeholder="your.email@example.com"
+                      required
+                    />
                   </div>
                 </div>
 
@@ -35,7 +41,13 @@ const ContactPage: React.FC = () => {
                   <label className="block text-secondary-800 font-medium mb-2">
                     Phone Number (Optional)
                   </label>
-                  <input type="tel" className="input" />
+                  <input
+                    type="tel"
+                    className="input"
+                    inputMode="tel"
+                    pattern="[0-9]*"
+                    placeholder="+1 (555) 123-4567"
+                  />
                 </div>
 
                 <div>

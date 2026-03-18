@@ -41,16 +41,18 @@ const HomePage: React.FC = () => {
             src="/hero.png"
             alt="Yoga instructor in peaceful meditation pose"
             className="w-full h-full object-cover opacity-30"
+            loading="eager"
+            decoding="async"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-secondary-900/60 via-secondary-800/40 to-transparent"></div>
         </div>
         <div className="relative container mx-auto px-4 py-20">
           <div className="max-w-4xl">
-            <h1 className="text-5xl md:text-7xl font-serif text-white mb-6 leading-tight">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-serif text-white mb-6 leading-tight">
               Find Your Inner
               <span className="block text-accent-200">Peace</span>
             </h1>
-            <p className="text-xl md:text-2xl text-primary-100 max-w-2xl mb-8 leading-relaxed">
+            <p className="text-lg sm:text-xl md:text-2xl text-primary-100 max-w-2xl mb-8 leading-relaxed">
               Transform your body and mind through authentic yoga practice
               guided by experienced instructors in a serene, welcoming environment.
             </p>
@@ -115,13 +117,11 @@ const HomePage: React.FC = () => {
                 <div className="relative">
                   <div className="absolute -inset-4 bg-gradient-to-br from-accent-200 to-secondary-200 rounded-2xl transform rotate-3"></div>
                   <img
-<<<<<<< HEAD
-                    src="/src/assets/hero.png"
-=======
                     src="/hero.png"
->>>>>>> origin/main
                     alt="Priya Sharma - Certified Yoga Instructor"
                     className="relative w-full h-96 lg:h-[500px] object-cover rounded-2xl shadow-2xl"
+                    loading="lazy"
+                    decoding="async"
                   />
                 </div>
               </div>
@@ -237,17 +237,22 @@ const HomePage: React.FC = () => {
               </div>
 
               {/* Navigation Dots */}
-              <div className="flex justify-center mt-8 space-x-3">
+              <div className="flex justify-center mt-8 space-x-4">
                 {testimonials.map((_, index) => (
                   <button
                     key={index}
                     onClick={() => setCurrentTestimonial(index)}
-                    className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                    className={`w-4 h-4 sm:w-3 sm:h-3 rounded-full transition-all duration-300 min-h-[44px] min-w-[44px] flex items-center justify-center ${
                       index === currentTestimonial
                         ? 'bg-accent-500 scale-125'
                         : 'bg-secondary-300 hover:bg-secondary-400'
                     }`}
-                  />
+                    aria-label={`Go to testimonial ${index + 1}`}
+                  >
+                    <span className={`w-4 h-4 sm:w-3 sm:h-3 rounded-full ${
+                      index === currentTestimonial ? 'bg-white' : 'bg-current'
+                    }`}></span>
+                  </button>
                 ))}
               </div>
 
@@ -286,11 +291,11 @@ const HomePage: React.FC = () => {
           </svg>
         </div>
         <div className="container mx-auto px-4 text-center relative">
-          <h2 className="text-4xl md:text-5xl font-serif text-white mb-6 leading-tight">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif text-white mb-6 leading-tight">
             Ready to Transform
             <span className="block text-accent-200">Your Life?</span>
           </h2>
-          <p className="text-xl text-secondary-100 mb-10 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-lg sm:text-xl text-secondary-100 mb-10 max-w-3xl mx-auto leading-relaxed">
             Take the first step toward better health, inner peace, and spiritual growth.
             Your yoga journey begins with a single breath.
           </p>
@@ -302,17 +307,17 @@ const HomePage: React.FC = () => {
               Contact Us
             </button>
           </div>
-          <div className="mt-12 flex justify-center items-center space-x-8 text-secondary-200">
+          <div className="mt-12 flex flex-col sm:flex-row justify-center items-center gap-6 sm:gap-8 text-secondary-200">
             <div className="text-center">
-              <div className="text-2xl font-serif mb-1">500+</div>
+              <div className="text-xl sm:text-2xl font-serif mb-1">500+</div>
               <div className="text-sm">Happy Students</div>
             </div>
             <div className="text-center">
-              <div className="text-2xl font-serif mb-1">15+</div>
+              <div className="text-xl sm:text-2xl font-serif mb-1">15+</div>
               <div className="text-sm">Years Experience</div>
             </div>
             <div className="text-center">
-              <div className="text-2xl font-serif mb-1">1000+</div>
+              <div className="text-xl sm:text-2xl font-serif mb-1">1000+</div>
               <div className="text-sm">Sessions Taught</div>
             </div>
           </div>
