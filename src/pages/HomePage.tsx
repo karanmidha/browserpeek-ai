@@ -115,11 +115,7 @@ const HomePage: React.FC = () => {
                 <div className="relative">
                   <div className="absolute -inset-4 bg-gradient-to-br from-accent-200 to-secondary-200 rounded-2xl transform rotate-3"></div>
                   <img
-<<<<<<< HEAD
-                    src="/src/assets/hero.png"
-=======
                     src="/hero.png"
->>>>>>> origin/main
                     alt="Priya Sharma - Certified Yoga Instructor"
                     className="relative w-full h-96 lg:h-[500px] object-cover rounded-2xl shadow-2xl"
                   />
