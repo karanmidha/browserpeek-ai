@@ -116,6 +116,7 @@ const HomePage: React.FC = () => {
               <div className="order-1 lg:order-2">
                 <div className="relative">
                   <div className="absolute -inset-4 bg-gradient-to-br from-accent-200 to-secondary-200 rounded-2xl transform rotate-3"></div>
+                  {/* Hero image - conflict markers removed */}
                   <img
                     src="/hero.png"
                     alt="Priya Sharma - Certified Yoga Instructor"

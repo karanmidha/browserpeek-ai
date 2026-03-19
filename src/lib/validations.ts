@@ -22,7 +22,6 @@ const sanitizedString = (schema: z.ZodString) =>
   });
 
 const phoneRegex = /^\+?[\d\s\-\(\)]+$/;
-const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 // User authentication schemas
 export const registerSchema = z.object({
@@ -60,19 +59,20 @@ export const bookingSchema = z.object({
 
 // Contact form schema
 export const contactSchema = z.object({
-  name: sanitizedString(z.string().min(1, 'Name is required').max(100, 'Name too long')),
-  email: z.string().regex(emailRegex, 'Invalid email address'),
-  phone: z.string().regex(phoneRegex, 'Invalid phone number').optional(),
-  subject: sanitizedString(z.string().min(1, 'Subject is required').max(200, 'Subject too long')),
-  message: sanitizedString(z.string().min(1, 'Message is required').max(2000, 'Message too long')),
+  name: sanitizedString(z.string().min(2, 'Name must be at least 2 characters').max(50, 'Name too long')),
+  email: z.string().email('Invalid email address'),
+  phone: z.string().regex(phoneRegex, 'Invalid phone number').optional().or(z.literal('')),
+  subject: z.enum(['general', 'classes', 'private', 'other']),
+  message: sanitizedString(z.string().min(10, 'Message must be at least 10 characters').max(1000, 'Message too long')),
 });
 
 // Testimonial schema
 export const testimonialSchema = z.object({
-  name: sanitizedString(z.string().min(1, 'Name is required').max(100, 'Name too long')),
-  email: z.string().regex(emailRegex, 'Invalid email address').optional(),
-  content: sanitizedString(z.string().min(10, 'Testimonial must be at least 10 characters').max(1000, 'Testimonial too long')),
+  name: sanitizedString(z.string().min(2, 'Name must be at least 2 characters').max(50, 'Name too long').regex(/^[a-zA-Z\s'-]+$/, 'Name can only contain letters, spaces, hyphens, and apostrophes')),
+  email: z.string().email('Invalid email address').optional().or(z.literal('')),
+  practiceStyle: z.enum(['Hatha', 'Vinyasa', 'Yin', 'Restorative']).optional(),
   rating: z.number().int().min(1, 'Rating must be 1-5').max(5, 'Rating must be 1-5'),
+  content: sanitizedString(z.string().min(10, 'Testimonial must be at least 10 characters').max(500, 'Testimonial too long')),
 });
 
 // Admin schemas
