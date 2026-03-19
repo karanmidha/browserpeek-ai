@@ -135,6 +135,8 @@ const ContactPage: React.FC = () => {
                       value={formData.email}
                       onChange={handleInputChange}
                       className="input"
+                      inputMode="email"
+                      placeholder="your.email@example.com"
                       required
                     />
                   </div>
@@ -150,6 +152,9 @@ const ContactPage: React.FC = () => {
                     value={formData.phone}
                     onChange={handleInputChange}
                     className="input"
+                    inputMode="tel"
+                    pattern="[0-9]*"
+                    placeholder="+1 (555) 123-4567"
                   />
                 </div>
 
