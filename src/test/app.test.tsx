@@ -23,9 +23,6 @@ vi.mock('../pages/BookingPage', () => ({
   default: () => <main><h1>Booking Page</h1></main>,
 }));
 
-vi.mock('../pages/TestimonialsPage', () => ({
-  default: () => <main><h1>Testimonials Page</h1></main>,
-}));
 
 vi.mock('../pages/ContactPage', () => ({
   default: () => <main><h1>Contact Page</h1></main>,

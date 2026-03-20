@@ -2,7 +2,6 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Layout from './components/Layout';
 import HomePage from './pages/HomePage';
 import BookingPage from './pages/BookingPage';
-import TestimonialsPage from './pages/TestimonialsPage';
 import ContactPage from './pages/ContactPage';
 import AdminPage from './pages/AdminPage';
 import { AdminAuthPage } from './pages/admin/AdminAuthPage';
@@ -21,7 +20,6 @@ function App() {
         {/* Public routes */}
         <Route path="/" element={<Layout><HomePage /></Layout>} />
         <Route path="/booking" element={<Layout><BookingPage /></Layout>} />
-        <Route path="/testimonials" element={<Layout><TestimonialsPage /></Layout>} />
         <Route path="/contact" element={<Layout><ContactPage /></Layout>} />
         <Route path="/admin" element={<Layout><AdminPage /></Layout>} />
 

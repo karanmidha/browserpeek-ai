@@ -5,7 +5,6 @@ import type { NavigationItem } from '../types';
 const navigationItems: NavigationItem[] = [
   { label: 'Home', href: '/' },
   { label: 'Book Session', href: '/booking' },
-  { label: 'Testimonials', href: '/testimonials' },
   { label: 'Contact', href: '/contact' },
 ];
 

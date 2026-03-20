@@ -13,14 +13,14 @@ describe('Homepage Integration Tests', () => {
     it('should render hero section with main headline', () => {
       render(<HomePage />);
 
-      expect(screen.getByText('Find Your Inner')).toBeInTheDocument();
-      expect(screen.getByText('Peace')).toBeInTheDocument();
+      expect(screen.getByText('Find Your Flow,')).toBeInTheDocument();
+      expect(screen.getByText('Reconnect with Self')).toBeInTheDocument();
     });
 
     it('should have hero image with correct path', () => {
       render(<HomePage />);
 
-      const heroImage = screen.getByAltText('Yoga instructor in peaceful meditation pose');
+      const heroImage = screen.getByAltText('Woman in peaceful meditation pose - yoga practice');
       expect(heroImage).toBeInTheDocument();
       expect(heroImage).toHaveAttribute('src', '/hero.png');
     });
@@ -28,8 +28,7 @@ describe('Homepage Integration Tests', () => {
     it('should have call-to-action buttons', () => {
       render(<HomePage />);
 
-      expect(screen.getByRole('button', { name: /book your session/i })).toBeInTheDocument();
-      expect(screen.getByRole('button', { name: /learn more/i })).toBeInTheDocument();
+      expect(screen.getByText('BOOK YOUR JOURNEY')).toBeInTheDocument();
     });
   });
 
@@ -90,32 +89,34 @@ describe('Homepage Integration Tests', () => {
     });
   });
 
-  describe('Testimonials Carousel', () => {
+  describe('Our Shared Journey - Testimonials Grid', () => {
     it('should display testimonial content', () => {
       render(<HomePage />);
 
-      expect(screen.getByText('What Our Students Say')).toBeInTheDocument();
-      // Should show at least one testimonial initially
-      expect(screen.getByText(/transformed my life/i)).toBeInTheDocument();
+      expect(screen.getByText('Our Shared Journey')).toBeInTheDocument();
+      expect(screen.getByText(/read the stories of transformation and peace/i)).toBeInTheDocument();
+      // Should show testimonials from the design
+      expect(screen.getByText('Sarah Jenkins')).toBeInTheDocument();
+      expect(screen.getByText('David Miller')).toBeInTheDocument();
+      expect(screen.getByText('Elena Kovac')).toBeInTheDocument();
     });
 
-    it('should have star ratings', () => {
+    it('should have star ratings visible', () => {
       render(<HomePage />);
 
-      // Stars are SVG elements, check for 5 star SVGs
-      const starSvgs = document.querySelectorAll('svg[viewBox="0 0 20 20"]');
-      const starElements = Array.from(starSvgs).filter(svg =>
-        svg.querySelector('path[d*="M9.049 2.927"]') // Star path
-      );
-      expect(starElements.length).toBe(5); // Should have 5 stars for rating
+      // Just verify that star characters appear on the page for testimonials
+      const pageText = document.body.textContent || '';
+      expect(pageText).toContain('★');
+      expect(pageText).toContain('☆');
     });
 
-    it('should have navigation dots', () => {
+    it('should display testimonial grid layout', () => {
       render(<HomePage />);
 
-      // Find the carousel navigation dots
-      const dots = document.querySelectorAll('[class*="w-3 h-3 rounded-full"]');
-      expect(dots.length).toBe(3); // Should have 3 testimonials
+      // Check for testimonial cards
+      expect(screen.getByText('Member for 2 years')).toBeInTheDocument();
+      expect(screen.getByText('Hatha Yoga Student')).toBeInTheDocument();
+      expect(screen.getByText('Vinyasa Enthusiast')).toBeInTheDocument();
     });
   });
 
@@ -144,16 +145,13 @@ describe('Homepage Integration Tests', () => {
   });
 
   describe('Basic Functionality', () => {
-    it('should handle carousel navigation clicks', () => {
+    it('should handle share experience button click', () => {
       render(<HomePage />);
 
-      // Find carousel dots and click them
-      const dots = document.querySelectorAll('[class*="w-3 h-3 rounded-full"]');
-      if (dots.length > 1) {
-        fireEvent.click(dots[1] as Element);
-        // Should not crash
-        expect(document.body).toBeInTheDocument();
-      }
+      // Find the "Share Your Experience" button
+      const shareButton = screen.getByText('Share Your Experience');
+      expect(shareButton).toBeInTheDocument();
+      expect(shareButton.closest('a')).toHaveAttribute('href', '/contact');
     });
 
     it('should have proper image loading', () => {

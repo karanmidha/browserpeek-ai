@@ -1,36 +1,30 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 
 const HomePage: React.FC = () => {
-  const [currentTestimonial, setCurrentTestimonial] = useState(0);
 
   const testimonials = [
     {
       id: 1,
-      quote: "The yoga sessions have transformed my life. I feel more balanced and peaceful than ever before.",
-      name: "Sarah Johnson",
+      name: "Sarah Jenkins",
+      studentType: "Member for 2 years",
       rating: 5,
+      quote: "OmYogVidya has become my sanctuary. The gentle guidance and supportive community have helped me find balance in both my practice and daily life. Every session leaves me feeling renewed.",
     },
     {
       id: 2,
-      quote: "Amazing instructor and beautiful space. Every session leaves me feeling refreshed and centered.",
-      name: "Michael Chen",
-      rating: 5,
+      name: "David Miller",
+      studentType: "Hatha Yoga Student",
+      rating: 4,
+      quote: "As someone new to yoga, I was nervous at first. But the instructor's patient approach made me feel welcome. I've gained strength, flexibility, and most importantly, inner peace.",
     },
     {
       id: 3,
-      quote: "The personalized approach and attention to detail makes all the difference. Highly recommended!",
-      name: "Emma Williams",
+      name: "Elena Kovac",
+      studentType: "Vinyasa Enthusiast",
       rating: 5,
+      quote: "The flowing sequences in Vinyasa classes are pure poetry in motion. Each breath connects me deeper to myself. This practice has transformed how I approach challenges in life.",
     },
   ];
-
-  // Auto-rotate testimonials
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrentTestimonial((prev) => (prev + 1) % testimonials.length);
-    }, 5000);
-    return () => clearInterval(timer);
-  }, [testimonials.length]);
 
   return (
     <div className="min-h-screen">
@@ -205,76 +199,71 @@ const HomePage: React.FC = () => {
         </div>
       </section>
 
-      {/* Testimonials Carousel */}
+      {/* Our Shared Journey - Testimonials */}
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
-          <h2 className="text-4xl font-serif text-secondary-900 text-center mb-4">
-            What Our Students Say
-          </h2>
-          <p className="text-lg text-secondary-700 text-center mb-16 max-w-3xl mx-auto">
-            Join hundreds of students who have discovered transformation through our yoga practice.
-          </p>
-          <div className="max-w-4xl mx-auto">
-            <div className="relative">
-              <div className="card text-center p-8 md:p-12 bg-gradient-to-br from-primary-50 to-accent-50">
-                <div className="flex justify-center mb-6">
-                  {[...Array(testimonials[currentTestimonial].rating)].map((_, i) => (
-                    <svg
-                      key={i}
-                      className="w-6 h-6 text-accent-500"
-                      fill="currentColor"
-                      viewBox="0 0 20 20"
-                    >
-                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                    </svg>
-                  ))}
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-serif text-secondary-900 mb-6">
+              Our Shared Journey
+            </h2>
+            <p className="text-lg text-secondary-700 max-w-3xl mx-auto">
+              Read the stories of transformation and peace from our community. Every breath counts, and every journey is unique.
+            </p>
+          </div>
+
+          {/* Testimonials Grid */}
+          <div className="max-w-6xl mx-auto mb-12">
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {testimonials.map((testimonial) => (
+                <div key={testimonial.id} className="card bg-primary-50 border border-primary-200">
+                  {/* Profile Section */}
+                  <div className="flex items-center mb-6">
+                    <div className="w-16 h-16 bg-accent-200 rounded-full flex items-center justify-center mr-4">
+                      <span className="text-accent-700 text-xl font-bold">
+                        {testimonial.name.split(' ').map(n => n[0]).join('')}
+                      </span>
+                    </div>
+                    <div>
+                      <h3 className="text-secondary-900 font-semibold text-lg">
+                        {testimonial.name}
+                      </h3>
+                      <p className="text-secondary-600 text-sm">
+                        {testimonial.studentType}
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Rating */}
+                  <div className="flex items-center mb-4">
+                    <div className="text-accent-500 text-lg">
+                      {'★'.repeat(testimonial.rating)}{'☆'.repeat(5 - testimonial.rating)}
+                    </div>
+                  </div>
+
+                  {/* Quote */}
+                  <p className="text-secondary-700 mb-4 italic leading-relaxed">
+                    "{testimonial.quote}"
+                  </p>
+
+                  {/* Practice Style */}
+                  <div className="text-secondary-500 text-sm mt-auto pt-4 border-t border-primary-200">
+                    <span className="text-accent-600 font-medium">
+                      Yoga Practice
+                    </span>
+                  </div>
                 </div>
-                <blockquote className="text-xl md:text-2xl text-secondary-800 font-serif italic mb-8 leading-relaxed">
-                  "{testimonials[currentTestimonial].quote}"
-                </blockquote>
-                <p className="text-lg font-semibold text-secondary-900">
-                  {testimonials[currentTestimonial].name}
-                </p>
-              </div>
-
-              {/* Navigation Dots */}
-              <div className="flex justify-center mt-8 space-x-4">
-                {testimonials.map((_, index) => (
-                  <button
-                    key={index}
-                    onClick={() => setCurrentTestimonial(index)}
-                    className={`w-4 h-4 sm:w-3 sm:h-3 rounded-full transition-all duration-300 min-h-[44px] min-w-[44px] flex items-center justify-center ${
-                      index === currentTestimonial
-                        ? 'bg-accent-500 scale-125'
-                        : 'bg-secondary-300 hover:bg-secondary-400'
-                    }`}
-                    aria-label={`Go to testimonial ${index + 1}`}
-                  >
-                    <span className={`w-4 h-4 sm:w-3 sm:h-3 rounded-full ${
-                      index === currentTestimonial ? 'bg-white' : 'bg-current'
-                    }`}></span>
-                  </button>
-                ))}
-              </div>
-
-              {/* Previous/Next Buttons */}
-              <button
-                onClick={() => setCurrentTestimonial((prev) => (prev - 1 + testimonials.length) % testimonials.length)}
-                className="absolute left-0 top-1/2 transform -translate-y-1/2 -translate-x-4 bg-white rounded-full p-3 shadow-lg hover:shadow-xl transition-all duration-300 group hidden md:block"
-              >
-                <svg className="w-6 h-6 text-secondary-600 group-hover:text-secondary-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 19l-7-7 7-7" />
-                </svg>
-              </button>
-              <button
-                onClick={() => setCurrentTestimonial((prev) => (prev + 1) % testimonials.length)}
-                className="absolute right-0 top-1/2 transform -translate-y-1/2 translate-x-4 bg-white rounded-full p-3 shadow-lg hover:shadow-xl transition-all duration-300 group hidden md:block"
-              >
-                <svg className="w-6 h-6 text-secondary-600 group-hover:text-secondary-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
-                </svg>
-              </button>
+              ))}
             </div>
+          </div>
+
+          {/* Call to Action */}
+          <div className="text-center">
+            <a
+              href="/contact"
+              className="btn-primary px-8 py-3 hover:scale-105 transform transition-all duration-300"
+            >
+              Share Your Experience
+            </a>
           </div>
         </div>
       </section>
