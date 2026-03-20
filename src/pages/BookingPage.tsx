@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import CalendarDateSelector from '../components/booking/CalendarDateSelector';
-import GroupedTimeSlotSelector from '../components/booking/GroupedTimeSlotSelector';
+import WeeklyDateSelector from '../components/booking/WeeklyDateSelector';
+import CleanTimeSlotSelector from '../components/booking/CleanTimeSlotSelector';
 import EnhancedBookingSummary from '../components/booking/EnhancedBookingSummary';
 import type { Database } from '../types/database';
 import { openRazorPayCheckout, createRazorPayOrder, verifyPaymentSignature } from '../utils/razorpay';
@@ -304,7 +304,7 @@ const BookingPage: React.FC = () => {
             <div className="space-y-6">
               {/* Date Selection */}
               <div className="card h-fit">
-                <CalendarDateSelector
+                <WeeklyDateSelector
                   selectedDate={selectedDate}
                   onDateSelect={handleDateSelect}
                   disabled={isProcessing}
@@ -313,7 +313,7 @@ const BookingPage: React.FC = () => {
 
               {/* Time Slot Selection */}
               <div className="card h-fit">
-                <GroupedTimeSlotSelector
+                <CleanTimeSlotSelector
                   selectedDate={selectedDate}
                   selectedSlot={selectedSlot}
                   onSlotSelect={handleSlotSelect}
