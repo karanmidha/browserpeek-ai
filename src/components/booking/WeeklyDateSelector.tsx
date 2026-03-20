@@ -14,14 +14,19 @@ const WeeklyDateSelector: React.FC<WeeklyDateSelectorProps> = ({
   const [availableDates, setAvailableDates] = useState<Date[]>([]);
 
   useEffect(() => {
-    // Generate available dates for the next 7 days starting from today
+    // Generate available dates for the next 7 days starting from TOMORROW
+    // Rolling date window: always starts with tomorrow as first day
     const dates: Date[] = [];
     const today = new Date();
     today.setHours(0, 0, 0, 0);
 
+    // Start from tomorrow (today + 1 day)
+    const tomorrow = new Date(today);
+    tomorrow.setDate(today.getDate() + 1);
+
     for (let i = 0; i < 7; i++) {
-      const date = new Date(today);
-      date.setDate(today.getDate() + i);
+      const date = new Date(tomorrow);
+      date.setDate(tomorrow.getDate() + i);
       dates.push(date);
     }
 
@@ -35,10 +40,12 @@ const WeeklyDateSelector: React.FC<WeeklyDateSelectorProps> = ({
     return selectedDate.getTime() === date.getTime();
   };
 
-  const isToday = (date: Date) => {
+  const isTomorrow = (date: Date) => {
     const today = new Date();
     today.setHours(0, 0, 0, 0);
-    return date.getTime() === today.getTime();
+    const tomorrow = new Date(today);
+    tomorrow.setDate(today.getDate() + 1);
+    return date.getTime() === tomorrow.getTime();
   };
 
   const formatDateDisplay = (date: Date) => {
@@ -56,7 +63,7 @@ const WeeklyDateSelector: React.FC<WeeklyDateSelectorProps> = ({
         {availableDates.map((date, index) => {
           const { dayName, dayNumber } = formatDateDisplay(date);
           const selected = isDateSelected(date);
-          const today = isToday(date);
+          const tomorrow = isTomorrow(date);
 
           return (
             <button
@@ -67,7 +74,7 @@ const WeeklyDateSelector: React.FC<WeeklyDateSelectorProps> = ({
                 flex flex-col items-center justify-center p-3 rounded-lg transition-all duration-200
                 ${selected
                   ? 'bg-secondary-600 text-white shadow-md'
-                  : today
+                  : tomorrow
                     ? 'bg-secondary-100 text-secondary-900 border-2 border-secondary-500 hover:bg-secondary-200'
                     : 'text-secondary-700 hover:bg-secondary-50 hover:border hover:border-secondary-300 bg-white border border-gray-200'
                 }
@@ -80,10 +87,10 @@ const WeeklyDateSelector: React.FC<WeeklyDateSelectorProps> = ({
               <div className="text-lg font-bold">
                 {dayNumber}
               </div>
-              {today && (
+              {tomorrow && (
                 <div className="text-xs mt-1">
                   <span className={`px-1 rounded text-xs ${selected ? 'text-white' : 'text-accent-600'}`}>
-                    Today
+                    Tomorrow
                   </span>
                 </div>
               )}
