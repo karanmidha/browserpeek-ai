@@ -75,7 +75,7 @@ const WeeklyDateSelector: React.FC<WeeklyDateSelectorProps> = ({
                 ${selected
                   ? 'bg-secondary-600 text-white shadow-md'
                   : tomorrow
-                    ? 'bg-secondary-100 text-secondary-900 border-2 border-secondary-500 hover:bg-secondary-200'
+                    ? 'bg-white text-secondary-900 border-2 border-secondary-300 hover:bg-secondary-50'
                     : 'text-secondary-700 hover:bg-secondary-50 hover:border hover:border-secondary-300 bg-white border border-gray-200'
                 }
                 ${!disabled ? 'hover:scale-105' : 'opacity-50'}
@@ -89,7 +89,7 @@ const WeeklyDateSelector: React.FC<WeeklyDateSelectorProps> = ({
               </div>
               {tomorrow && (
                 <div className="text-xs mt-1">
-                  <span className={`px-1 rounded text-xs ${selected ? 'text-white' : 'text-accent-600'}`}>
+                  <span className={`px-1 rounded text-xs ${selected ? 'text-white' : 'text-secondary-600'}`}>
                     Tomorrow
                   </span>
                 </div>

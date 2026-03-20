@@ -201,7 +201,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
             {/* Contact Info */}
             <div>
               <h3 className="text-lg font-medium mb-4">Contact</h3>
-              <div className="space-y-2 text-secondary-200">
+              <div className="space-y-2 text-accent-200">
                 <div>📧 info@omyogvidya.com</div>
                 <div>📞 +91 98765 43210</div>
                 <div>📍 Mumbai, Maharashtra</div>

@@ -219,9 +219,9 @@ const CleanTimeSlotSelector: React.FC<CleanTimeSlotSelectorProps> = ({
     if (slot.is_within_cutoff) return { label: 'Too Late', color: 'orange' };
 
     const availableSpots = slot.max_students - slot.booked_count;
-    if (availableSpots <= 2) return { label: 'Almost Full', color: 'yellow' };
+    if (availableSpots <= 2) return { label: `${availableSpots} slots left`, color: 'yellow' };
 
-    return { label: 'Available', color: 'green' };
+    return { label: `${availableSpots} slots left`, color: 'green' };
   };
 
   const isSlotBookable = (slot: TimeSlot) => {
@@ -357,12 +357,6 @@ const CleanTimeSlotSelector: React.FC<CleanTimeSlotSelectorProps> = ({
                     {status.label}
                   </div>
 
-                  {/* Available Spots */}
-                  {isBookable && (
-                    <div className="text-xs text-secondary-600 mt-2">
-                      {availableSpots} spots left
-                    </div>
-                  )}
 
                   {/* Selection Indicator */}
                   {isSelected && (
