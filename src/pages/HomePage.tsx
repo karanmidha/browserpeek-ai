@@ -35,34 +35,34 @@ const HomePage: React.FC = () => {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-primary-200 via-primary-100 to-accent-100 min-h-screen flex items-center">
+      <section className="relative min-h-screen flex items-center overflow-hidden">
         <div className="absolute inset-0 overflow-hidden">
           <img
             src="/hero.png"
-            alt="Yoga instructor in peaceful meditation pose"
-            className="w-full h-full object-cover opacity-30"
+            alt="Woman in peaceful meditation pose - yoga practice"
+            className="w-full h-full object-cover object-center"
             loading="eager"
             decoding="async"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-secondary-900/60 via-secondary-800/40 to-transparent"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-secondary-900/70 via-secondary-800/50 to-secondary-900/30"></div>
         </div>
         <div className="relative container mx-auto px-4 py-20">
           <div className="max-w-4xl">
             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-serif text-white mb-6 leading-tight">
-              Find Your Inner
-              <span className="block text-accent-200">Peace</span>
+              Find Your Flow,
+              <span className="block text-accent-200 italic">Reconnect with Self</span>
             </h1>
             <p className="text-lg sm:text-xl md:text-2xl text-primary-100 max-w-2xl mb-8 leading-relaxed">
               Transform your body and mind through authentic yoga practice
               guided by experienced instructors in a serene, welcoming environment.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4">
-              <button className="btn-primary text-lg px-8 py-4 hover:scale-105 transform transition-all duration-300">
-                Book Your Session
-              </button>
-              <button className="btn-secondary text-lg px-8 py-4 hover:scale-105 transform transition-all duration-300">
-                Learn More
-              </button>
+            <div className="flex justify-start">
+              <a
+                href="/booking"
+                className="btn-primary text-lg px-10 py-4 hover:scale-105 transform transition-all duration-300 font-semibold tracking-wide"
+              >
+                BOOK YOUR JOURNEY
+              </a>
             </div>
           </div>
         </div>
