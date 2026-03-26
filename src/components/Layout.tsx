@@ -173,7 +173,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
           <div className="grid md:grid-cols-3 gap-8">
             {/* About */}
             <div>
-              <h3 className="text-xl font-serif mb-4">OmYogVidya</h3>
+              <h3 className="text-xl font-serif mb-4 text-accent-200">OmYogVidya</h3>
               <p className="text-secondary-200 leading-relaxed">
                 Authentic yoga practice for mind, body, and spirit.
                 Join us on a journey to inner peace and wellness.
@@ -182,7 +182,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
 
             {/* Quick Links */}
             <div>
-              <h3 className="text-lg font-medium mb-4">Quick Links</h3>
+              <h3 className="text-lg font-medium mb-4 text-accent-200">Quick Links</h3>
               <ul className="space-y-2">
                 {navigationItems.map((item) => (
                   <li key={item.href}>
@@ -199,7 +199,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
 
             {/* Contact Info */}
             <div>
-              <h3 className="text-lg font-medium mb-4">Contact</h3>
+              <h3 className="text-lg font-medium mb-4 text-accent-200">Contact</h3>
               <div className="space-y-2 text-accent-200">
                 <div>📧 info@omyogvidya.com</div>
                 <div>📞 +91 98765 43210</div>
