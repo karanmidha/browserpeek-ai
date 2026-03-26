@@ -375,16 +375,7 @@ const CleanTimeSlotSelector: React.FC<CleanTimeSlotSelectorProps> = ({
         </div>
       ))}
 
-      {selectedSlot && (
-        <div className="mt-6 p-4 bg-primary-100 rounded-lg">
-          <h4 className="font-semibold text-secondary-900 mb-2">Selected Session</h4>
-          <div className="text-sm text-secondary-700">
-            <p><strong>Time:</strong> {formatTime(selectedSlot.start_time)} - {formatTime(selectedSlot.end_time)}</p>
-            <p><strong>Duration:</strong> {selectedSlot.practice_style?.duration_minutes} minutes</p>
-            <p><strong>Price:</strong> ₹{selectedSlot.practice_style?.price || 600}</p>
-          </div>
-        </div>
-      )}
+      {/* B-04: Removed redundant "Selected Session" block - info shown in right-side booking summary */}
     </div>
   );
 };

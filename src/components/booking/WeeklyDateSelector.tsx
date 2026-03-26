@@ -58,8 +58,8 @@ const WeeklyDateSelector: React.FC<WeeklyDateSelectorProps> = ({
     <div className="w-full">
       <h3 className="text-lg font-serif text-secondary-900 mb-4">Select Date</h3>
 
-      {/* 7-Day Calendar Header */}
-      <div className="grid grid-cols-7 gap-3 mb-4">
+      {/* 7-Day Calendar Header - B-02: Added proper spacing, B-03: Mobile-optimized layout */}
+      <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-7 gap-2 sm:gap-3 mb-4">
         {availableDates.map((date, index) => {
           const { dayName, dayNumber } = formatDateDisplay(date);
           const selected = isDateSelected(date);
@@ -71,7 +71,7 @@ const WeeklyDateSelector: React.FC<WeeklyDateSelectorProps> = ({
               onClick={() => onDateSelect(date)}
               disabled={disabled}
               className={`
-                flex flex-col items-center justify-center p-4 rounded-lg transition-all duration-200 min-h-[4rem]
+                flex flex-col items-center justify-center p-3 sm:p-4 rounded-lg transition-all duration-200 min-h-[3.5rem] sm:min-h-[4rem] relative
                 ${selected
                   ? 'bg-sage-600 text-white shadow-md'
                   : tomorrow
@@ -81,19 +81,18 @@ const WeeklyDateSelector: React.FC<WeeklyDateSelectorProps> = ({
                 ${!disabled ? 'hover:scale-105' : 'opacity-50'}
               `}
             >
+              {/* B-01: Compact badge for Tomorrow instead of overflowing text */}
+              {tomorrow && (
+                <div className="absolute -top-1 -right-1 w-3 h-3 bg-sage-500 rounded-full border-2 border-white">
+                  <div className="w-full h-full bg-sage-500 rounded-full"></div>
+                </div>
+              )}
               <div className="text-xs font-medium mb-1">
                 {dayName}
               </div>
               <div className="text-lg font-bold">
                 {dayNumber}
               </div>
-              {tomorrow && (
-                <div className="text-xs mt-1 w-full text-center">
-                  <span className={`px-2 py-0.5 rounded text-xs whitespace-nowrap ${selected ? 'text-white' : 'text-sage-700'}`}>
-                    Tomorrow
-                  </span>
-                </div>
-              )}
             </button>
           );
         })}
@@ -114,21 +113,7 @@ const WeeklyDateSelector: React.FC<WeeklyDateSelectorProps> = ({
         </div>
       </div>
 
-      {/* Selected Date Display */}
-      {selectedDate && (
-        <div className="mt-4 p-3 bg-primary-100 rounded-lg">
-          <p className="text-sm text-secondary-700">
-            Selected: <span className="font-semibold text-secondary-900">
-              {selectedDate.toLocaleDateString('en-US', {
-                weekday: 'long',
-                month: 'long',
-                day: 'numeric',
-                year: 'numeric'
-              })}
-            </span>
-          </p>
-        </div>
-      )}
+      {/* B-04: Removed redundant "Selected: date" display - info shown in right-side summary */}
     </div>
   );
 };
