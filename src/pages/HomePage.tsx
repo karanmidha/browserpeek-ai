@@ -137,7 +137,7 @@ const HomePage: React.FC = () => {
           </p>
           <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
             <div className="group cursor-pointer">
-              <div className="card hover:shadow-2xl hover:scale-105 transition-all duration-300 text-center h-full">
+              <div className="card hover:shadow-2xl hover:scale-105 transition-all duration-300 text-center h-full flex flex-col">
                 <div className="mb-6">
                   <div className="w-16 h-16 bg-secondary-100 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-secondary-200 transition-colors duration-300">
                     <svg className="w-8 h-8 text-secondary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -146,18 +146,18 @@ const HomePage: React.FC = () => {
                   </div>
                   <h3 className="text-2xl font-serif text-secondary-900 mb-4 group-hover:text-secondary-700 transition-colors duration-300">Hatha Yoga</h3>
                 </div>
-                <p className="text-secondary-700 mb-6 leading-relaxed">
+                <p className="text-secondary-700 mb-6 leading-relaxed flex-grow">
                   Gentle, slow-paced practice focusing on basic postures, breathing techniques,
                   and meditation. Perfect for beginners and those seeking relaxation.
                 </p>
-                <button className="btn-secondary w-full group-hover:bg-accent-600 transition-colors duration-300">
+                <button className="btn-secondary w-full group-hover:bg-accent-600 transition-colors duration-300 mt-auto">
                   Book Hatha Session
                 </button>
               </div>
             </div>
 
             <div className="group cursor-pointer">
-              <div className="card hover:shadow-2xl hover:scale-105 transition-all duration-300 text-center h-full">
+              <div className="card hover:shadow-2xl hover:scale-105 transition-all duration-300 text-center h-full flex flex-col">
                 <div className="mb-6">
                   <div className="w-16 h-16 bg-secondary-100 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-secondary-200 transition-colors duration-300">
                     <svg className="w-8 h-8 text-secondary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -166,18 +166,18 @@ const HomePage: React.FC = () => {
                   </div>
                   <h3 className="text-2xl font-serif text-secondary-900 mb-4 group-hover:text-secondary-700 transition-colors duration-300">Vinyasa Flow</h3>
                 </div>
-                <p className="text-secondary-700 mb-6 leading-relaxed">
+                <p className="text-secondary-700 mb-6 leading-relaxed flex-grow">
                   Dynamic sequences that link movement with breath, creating a flowing meditation.
                   Build strength, flexibility, and mindfulness through continuous movement.
                 </p>
-                <button className="btn-secondary w-full group-hover:bg-accent-600 transition-colors duration-300">
+                <button className="btn-secondary w-full group-hover:bg-accent-600 transition-colors duration-300 mt-auto">
                   Book Flow Session
                 </button>
               </div>
             </div>
 
             <div className="group cursor-pointer">
-              <div className="card hover:shadow-2xl hover:scale-105 transition-all duration-300 text-center h-full">
+              <div className="card hover:shadow-2xl hover:scale-105 transition-all duration-300 text-center h-full flex flex-col">
                 <div className="mb-6">
                   <div className="w-16 h-16 bg-secondary-100 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-secondary-200 transition-colors duration-300">
                     <svg className="w-8 h-8 text-secondary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -186,11 +186,11 @@ const HomePage: React.FC = () => {
                   </div>
                   <h3 className="text-2xl font-serif text-secondary-900 mb-4 group-hover:text-secondary-700 transition-colors duration-300">Meditation & Mindfulness</h3>
                 </div>
-                <p className="text-secondary-700 mb-6 leading-relaxed">
+                <p className="text-secondary-700 mb-6 leading-relaxed flex-grow">
                   Cultivate inner peace and mental clarity through guided meditation practices,
                   breathwork, and mindfulness techniques for modern life.
                 </p>
-                <button className="btn-secondary w-full group-hover:bg-accent-600 transition-colors duration-300">
+                <button className="btn-secondary w-full group-hover:bg-accent-600 transition-colors duration-300 mt-auto">
                   Book Meditation Session
                 </button>
               </div>
@@ -289,11 +289,11 @@ const HomePage: React.FC = () => {
             Take the first step toward better health, inner peace, and spiritual growth.
             Your yoga journey begins with a single breath.
           </p>
-          <div className="flex flex-col sm:flex-row justify-center gap-6">
+          <div className="flex flex-col sm:flex-row justify-center items-center gap-6">
             <button className="btn-secondary text-lg px-10 py-4 hover:bg-accent-600 hover:scale-105 transform transition-all duration-300 shadow-lg">
               Book Your First Session
             </button>
-            <button className="border-2 border-white text-white text-lg px-10 py-4 rounded-md hover:bg-white hover:text-secondary-600 transition-all duration-300 hover:scale-105 transform">
+            <button className="border-2 border-white text-white text-lg px-10 py-4 rounded-md hover:bg-white hover:text-secondary-600 transition-all duration-300 hover:scale-105 transform min-h-[44px]">
               Contact Us
             </button>
           </div>
