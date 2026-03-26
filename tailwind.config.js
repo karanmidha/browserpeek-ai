@@ -7,6 +7,23 @@ module.exports = {
   theme: {
     extend: {
       colors: {
+        // New design system colors from designs/ folder
+        sage: {
+          50: '#f4f7f4',
+          100: '#e6ede6',
+          200: '#d1ddd1',
+          600: '#7c967c',
+          800: '#4a5d4a',
+        },
+        cream: {
+          50: '#fdfbf7',
+          100: '#f9f3e9',
+        },
+        wood: {
+          500: '#a67c52',
+          700: '#7a5a3a',
+        },
+        // Keep legacy colors for gradual migration
         primary: {
           50: '#fdfcfa',
           100: '#faf8f3',

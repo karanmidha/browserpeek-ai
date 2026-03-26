@@ -56,38 +56,44 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
   }, [isMobileMenuOpen]);
 
   return (
-    <div className="min-h-screen bg-primary-200">
+    <div className="min-h-screen bg-cream-50 text-stone-800">
       {/* Header */}
-      <header className="bg-white shadow-sm">
-        <nav className="container mx-auto px-4">
-          <div className="flex items-center justify-between h-16">
+      <header className="sticky top-0 z-50 bg-cream-50/90 backdrop-blur-md border-b border-sage-100">
+        <nav className="max-w-7xl mx-auto px-6 py-4">
+          <div className="flex justify-between items-center">
             {/* Logo */}
-            <Link to="/" className="text-2xl font-serif text-secondary-900 hover:text-secondary-700 transition-colors">
-              OmYogVidya
+            <Link to="/" className="text-2xl font-bold text-sage-800 tracking-wide hover:text-sage-600 transition-colors">
+              OMYOGVIDYA
             </Link>
 
             {/* Navigation */}
-            <ul className="hidden md:flex items-center space-x-8">
-              {navigationItems.map((item) => (
-                <li key={item.href}>
-                  <Link
-                    to={item.href}
-                    className={`font-medium transition-colors ${
-                      location.pathname === item.href
-                        ? 'text-secondary-600'
-                        : 'text-secondary-800 hover:text-secondary-600'
-                    }`}
-                  >
-                    {item.label}
-                  </Link>
-                </li>
-              ))}
+            <ul className="hidden md:flex space-x-8 text-sm font-medium uppercase tracking-widest text-stone-600">
+              <li>
+                <Link to="/" className={`hover:text-sage-600 transition-colors ${location.pathname === '/' ? 'text-sage-600' : ''}`}>
+                  About
+                </Link>
+              </li>
+              <li>
+                <a href="#styles" className="hover:text-sage-600 transition-colors">
+                  Styles
+                </a>
+              </li>
+              <li>
+                <Link to="/contact" className={`hover:text-sage-600 transition-colors ${location.pathname === '/contact' ? 'text-sage-600' : ''}`}>
+                  Contact
+                </Link>
+              </li>
+              <li>
+                <Link to="/booking" className={`hover:text-wood-500 transition-colors ${location.pathname === '/booking' ? 'text-wood-500' : ''}`}>
+                  Book a Class
+                </Link>
+              </li>
             </ul>
 
             {/* Mobile Menu Button */}
             <button
               ref={mobileMenuButtonRef}
-              className="md:hidden p-2 text-secondary-800 hover:text-secondary-600 focus:outline-none focus:ring-2 focus:ring-secondary-500 focus:ring-offset-2 rounded-md min-h-[44px] min-w-[44px]"
+              className="md:hidden p-2 text-stone-600 hover:text-sage-600 focus:outline-none focus:ring-2 focus:ring-sage-500 focus:ring-offset-2 rounded-md min-h-[44px] min-w-[44px]"
               onClick={toggleMobileMenu}
               aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
               aria-expanded={isMobileMenuOpen}

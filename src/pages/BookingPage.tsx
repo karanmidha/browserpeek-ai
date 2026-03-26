@@ -262,14 +262,13 @@ const BookingPage: React.FC = () => {
   }
 
   return (
-    <div className="min-h-screen py-8 bg-primary-100">
-      <div className="container mx-auto px-4">
-        <h1 className="text-4xl font-serif text-secondary-900 text-center mb-4">
-          Book Your Flow
-        </h1>
-        <p className="text-lg text-secondary-600 text-center italic mb-8">
-          "Yoga is the journey of the self, through the self, to the self."
-        </p>
+    <div className="min-h-screen bg-cream-50 text-stone-800">
+      <main className="max-w-4xl mx-auto px-4 py-8 md:py-16">
+        {/* Header Section */}
+        <header className="text-center mb-12">
+          <h1 className="text-4xl md:text-5xl font-semibold mb-4 text-stone-900">Book Your Flow</h1>
+          <p className="text-sage-600 max-w-md mx-auto italic font-serif text-lg">"Yoga is the journey of the self, through the self, to the self."</p>
+        </header>
 
         {/* Error Alert */}
         {bookingError && (
@@ -296,14 +295,32 @@ const BookingPage: React.FC = () => {
           </div>
         )}
 
-        <div className="max-w-6xl mx-auto">
-          {/* 2-Column Layout: Date & Time Selection | Booking Summary */}
-          <div className="grid lg:grid-cols-2 gap-6">
+        {/* Booking Card */}
+        <section className="bg-white rounded-2xl shadow-sm border border-sage-100 overflow-hidden">
+          <div className="grid md:grid-cols-2">
 
-            {/* Left Panel: Date & Time Selection */}
-            <div className="space-y-4">
+            {/* Selection Area */}
+            <div className="p-6 md:p-8 border-b md:border-b-0 md:border-r border-sage-100">
+              <h2 className="text-xl font-medium mb-6 flex items-center gap-2 text-stone-900">
+                <svg className="w-5 h-5 text-wood-500" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
+                  <path d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5" strokeLinecap="round" strokeLinejoin="round"></path>
+                </svg>
+                Select Date & Time
+              </h2>
+
+              {/* Advance Booking Notice */}
+              <div className="bg-cream-100 border border-wood-500/20 rounded-lg p-4 mb-8 text-sm text-wood-700 flex items-start gap-3">
+                <svg className="w-5 h-5 text-wood-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
+                  <path d="M11.25 11.25l.041-.02a.75.75 0 011.063.852l-.708 2.836a.75.75 0 001.063.853l.041-.021M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9-3.75h.008v.008H12V8.25z" strokeLinecap="round" strokeLinejoin="round"></path>
+                </svg>
+                <div>
+                  <p className="font-medium text-wood-800 mb-1">Advance booking required</p>
+                  <p className="text-wood-600">Sessions must be booked at least 24 hours in advance to ensure availability and proper preparation.</p>
+                </div>
+              </div>
+
               {/* Date Selection */}
-              <div className="card h-fit">
+              <div className="mb-8">
                 <WeeklyDateSelector
                   selectedDate={selectedDate}
                   onDateSelect={handleDateSelect}
@@ -312,7 +329,7 @@ const BookingPage: React.FC = () => {
               </div>
 
               {/* Time Slot Selection */}
-              <div className="card h-fit">
+              <div>
                 <CleanTimeSlotSelector
                   selectedDate={selectedDate}
                   selectedSlot={selectedSlot}
@@ -322,9 +339,9 @@ const BookingPage: React.FC = () => {
               </div>
             </div>
 
-            {/* Right Panel: Booking Summary */}
-            <div>
-              <div className="card h-fit sticky top-6">
+            {/* Summary Area */}
+            <div className="p-6 md:p-8">
+              <div className="sticky top-4">
                 <EnhancedBookingSummary
                   selectedDate={selectedDate}
                   selectedSlot={selectedSlot}
@@ -335,10 +352,8 @@ const BookingPage: React.FC = () => {
               </div>
             </div>
           </div>
-        </div>
-
-
-      </div>
+        </section>
+      </main>
     </div>
   );
 };
