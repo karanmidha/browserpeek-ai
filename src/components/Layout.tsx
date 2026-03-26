@@ -3,9 +3,8 @@ import { Link, useLocation } from 'react-router-dom';
 import type { NavigationItem } from '../types';
 
 const navigationItems: NavigationItem[] = [
-  { label: 'Home', href: '/' },
-  { label: 'Book Session', href: '/booking' },
   { label: 'Contact', href: '/contact' },
+  { label: 'Book Session', href: '/booking' },
 ];
 
 interface LayoutProps {
@@ -61,23 +60,15 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
       <header className="sticky top-0 z-50 bg-cream-50/90 backdrop-blur-md border-b border-sage-100">
         <nav className="max-w-7xl mx-auto px-6 py-4">
           <div className="flex justify-between items-center">
-            {/* Logo */}
-            <Link to="/" className="text-2xl font-bold text-sage-800 tracking-wide hover:text-sage-600 transition-colors">
-              OMYOGVIDYA
-            </Link>
+            {/* Logo - H-02: Left-align with 24px padding */}
+            <div className="pl-6">
+              <Link to="/" className="text-2xl font-bold text-sage-800 tracking-wide hover:text-sage-600 transition-colors">
+                OMYOGVIDYA
+              </Link>
+            </div>
 
-            {/* Navigation */}
-            <ul className="hidden md:flex space-x-8 text-sm font-medium uppercase tracking-widest text-stone-600">
-              <li>
-                <Link to="/" className={`hover:text-sage-600 transition-colors ${location.pathname === '/' ? 'text-sage-600' : ''}`}>
-                  About
-                </Link>
-              </li>
-              <li>
-                <a href="#styles" className="hover:text-sage-600 transition-colors">
-                  Styles
-                </a>
-              </li>
+            {/* Navigation - H-01: Only CONTACT and BOOK A CLASS, H-03: Right-align with 24px padding */}
+            <ul className="hidden md:flex space-x-8 text-sm font-medium uppercase tracking-widest text-stone-600 pr-6">
               <li>
                 <Link to="/contact" className={`hover:text-sage-600 transition-colors ${location.pathname === '/contact' ? 'text-sage-600' : ''}`}>
                   Contact
@@ -173,49 +164,24 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
         {children}
       </main>
 
-      {/* Footer */}
+      {/* Footer - H-06: Streamlined to Contact info only with reduced padding */}
       <footer className="bg-secondary-800 text-white">
-        <div className="container mx-auto px-4 py-12">
-          <div className="grid md:grid-cols-3 gap-8">
-            {/* About */}
-            <div>
-              <h3 className="text-xl font-serif mb-4 text-accent-200">OmYogVidya</h3>
-              <p className="text-secondary-200 leading-relaxed">
-                Authentic yoga practice for mind, body, and spirit.
-                Join us on a journey to inner peace and wellness.
-              </p>
-            </div>
-
-            {/* Quick Links */}
-            <div>
-              <h3 className="text-lg font-medium mb-4 text-accent-200">Quick Links</h3>
-              <ul className="space-y-2">
-                {navigationItems.map((item) => (
-                  <li key={item.href}>
-                    <Link
-                      to={item.href}
-                      className="text-secondary-200 hover:text-white transition-colors"
-                    >
-                      {item.label}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            {/* Contact Info */}
-            <div>
-              <h3 className="text-lg font-medium mb-4 text-accent-200">Contact</h3>
-              <div className="space-y-2 text-accent-200">
+        <div className="container mx-auto px-4 py-6">
+          <div className="flex flex-col items-center space-y-4">
+            {/* Contact Info Only */}
+            <div className="text-center">
+              <h3 className="text-lg font-medium mb-3 text-accent-200">Contact</h3>
+              <div className="flex flex-col sm:flex-row sm:space-x-6 space-y-1 sm:space-y-0 text-accent-200">
                 <div>📧 info@omyogvidya.com</div>
                 <div>📞 +91 98765 43210</div>
                 <div>📍 Mumbai, Maharashtra</div>
               </div>
             </div>
-          </div>
 
-          <div className="border-t border-secondary-700 mt-8 pt-8 text-center text-secondary-200">
-            <p>&copy; 2026 OmYogVidya. All rights reserved.</p>
+            {/* Copyright */}
+            <div className="text-center text-secondary-200 text-sm">
+              <p>&copy; 2026 OmYogVidya. All rights reserved.</p>
+            </div>
           </div>
         </div>
       </footer>

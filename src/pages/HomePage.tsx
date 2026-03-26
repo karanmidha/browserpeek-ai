@@ -188,8 +188,12 @@ const HomePage: React.FC = () => {
               </div>
             ))}
           </div>
+        </div>
+      </section>
 
-          {/* Call to Action */}
+      {/* H-04: Share Your Experience Button - moved below testimonials with 24px margin */}
+      <section className="pt-6 bg-cream-100">
+        <div className="max-w-7xl mx-auto px-6">
           <div className="text-center">
             <a
               href="/contact"
@@ -201,18 +205,8 @@ const HomePage: React.FC = () => {
         </div>
       </section>
 
-      {/* CTA Banner */}
-      <section className="py-20 bg-gradient-to-r from-secondary-700 via-secondary-600 to-secondary-700 relative overflow-hidden">
-        <div className="absolute inset-0 opacity-10">
-          <svg className="w-full h-full" viewBox="0 0 100 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <defs>
-              <pattern id="pattern" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
-                <circle cx="10" cy="10" r="2" fill="white" />
-              </pattern>
-            </defs>
-            <rect width="100" height="20" fill="url(#pattern)" />
-          </svg>
-        </div>
+      {/* CTA Banner - H-05: Removed decorative dots, using solid dark green background */}
+      <section className="py-20 bg-secondary-800 relative">
         <div className="container mx-auto px-4 text-center relative">
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif text-white mb-6 leading-tight">
             Ready to Transform
