@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Client Experiences | Yoga with OmYogVidya</title>
+<!-- Tailwind CSS CDN with plugins -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&amp;family=Inter:wght@300;400;500&amp;display=swap" rel="stylesheet"/>
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'yoga-sage': '#94a390',
+            'yoga-earth': '#7c6a58',
+            'yoga-sand': '#f4f1ea',
+            'yoga-clay': '#d9a998',
+          },
+          fontFamily: {
+            serif: ['"Playfair Display"', 'serif'],
+            sans: ['Inter', 'sans-serif'],
+          },
+        }
+      }
+    }
+  </script>
+<style data-purpose="custom-typography">
+    .testimonial-quote::before {
+      content: '"';
+      font-family: 'Playfair Display', serif;
+      font-size: 4rem;
+      position: absolute;
+      top: -1rem;
+      left: 1rem;
+      opacity: 0.1;
+      line-height: 1;
+    }
+  </style>
+</head>
+<body class="bg-yoga-sand font-sans text-stone-800 antialiased">
+<!-- BEGIN: Navigation -->
+<nav class="bg-white/80 backdrop-blur-md sticky top-0 z-50 border-b border-stone-200">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex justify-between h-20 items-center">
+<div class="flex-shrink-0 flex items-center">
+<span class="font-serif text-2xl font-bold tracking-tight text-yoga-earth">OmYogVidya</span>
+</div>
+<div class="hidden md:flex space-x-8 items-center">
+<a class="text-stone-600 hover:text-yoga-sage transition-colors" href="#">Classes</a>
+<a class="text-stone-600 hover:text-yoga-sage transition-colors" href="#">About</a>
+<a class="text-yoga-sage font-medium border-b-2 border-yoga-sage" href="#">Experiences</a>
+<a class="bg-yoga-sage text-white px-6 py-2 rounded-full hover:bg-opacity-90 transition-all shadow-sm" href="#">Book a Class</a>
+</div>
+</div>
+</div>
+</nav>
+<!-- END: Navigation -->
+<!-- BEGIN: Hero Section -->
+<header class="py-16 md:py-24 px-4 text-center bg-white" data-purpose="page-header">
+<div class="max-w-3xl mx-auto">
+<span class="text-yoga-clay font-medium tracking-widest uppercase text-sm mb-4 block">Community &amp; Growth</span>
+<h1 class="text-4xl md:text-6xl font-serif font-bold text-yoga-earth mb-6">Our Shared Journey</h1>
+<p class="text-lg text-stone-600 leading-relaxed mb-10">
+        Read the stories of transformation and peace from our community. Every breath counts, and every journey is unique.
+      </p>
+<button class="inline-flex items-center px-8 py-3 bg-yoga-earth text-white rounded-md hover:bg-opacity-90 transition-all font-medium shadow-lg hover:shadow-xl transform hover:-translate-y-1" id="openReviewBtn">
+        Share Your Experience
+      </button>
+</div>
+</header>
+<!-- END: Hero Section -->
+<!-- BEGIN: Testimonials Grid -->
+<main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20" data-purpose="testimonials-container">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+<!-- Testimonial 1 -->
+<article class="bg-white p-8 rounded-2xl shadow-sm border border-stone-100 flex flex-col justify-between relative overflow-hidden group hover:shadow-md transition-shadow">
+<div class="relative z-10">
+<div class="flex items-center mb-6">
+<img alt="Sarah J." class="w-14 h-14 rounded-full object-cover border-2 border-yoga-sand" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAZQbr3clSt8oTuTluDtS8oDChnaQuO7lyh0b5yB0hdIBmV7SHxs0_-3z4lsu68J10lT4523AxGRZ7autRWLm2M1Xc7kxT4YEvwMnUUeABOrsjtvHt2BQHqqsGZNFb3aDn99BaU9YKGpKmDG_kRnPoY9H7tbkwwSP8i5X_r7H54nkJ8F3dUQiUQ1-8USyk7UXQsZqyKlr6tM_R6zrSvpR-xKEC10VDxJK1VK_KMj3R7Ui_frJLLxy9-PTiBdUV3ER1mu4p-j69deAk"/>
+<div class="ml-4">
+<h3 class="font-serif font-bold text-lg text-yoga-earth">Sarah Jenkins</h3>
+<p class="text-stone-400 text-sm">Member for 2 years</p>
+</div>
+</div>
+<p class="text-stone-600 italic leading-relaxed testimonial-quote relative pl-4">
+            "The restorative yoga sessions have completely changed how I handle work stress. I feel more grounded and flexible, both physically and mentally. The atmosphere here is truly sacred."
+          </p>
+</div>
+<div class="mt-8 flex items-center text-yoga-clay">
+<svg class="w-5 h-5 fill-current" viewbox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+<svg class="w-5 h-5 fill-current" viewbox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+<svg class="w-5 h-5 fill-current" viewbox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+<svg class="w-5 h-5 fill-current" viewbox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+<svg class="w-5 h-5 fill-current" viewbox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+</div>
+</article>
+<!-- Testimonial 2 -->
+<article class="bg-white p-8 rounded-2xl shadow-sm border border-stone-100 flex flex-col justify-between relative group hover:shadow-md transition-shadow">
+<div class="relative z-10">
+<div class="flex items-center mb-6">
+<img alt="David M." class="w-14 h-14 rounded-full object-cover border-2 border-yoga-sand" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBktDGlemSIAXjW9Ri60WGKo5VHDTuvrzXDczLdFX0BQ_3S8m_FenZGO9Y-3x-K4AYI9hTVbRZ3sQGu63zwSUVf6-IZt-tIvPu8h4mkL_O0xdKwYinUnwaqkrSoWttQHSvUyy0K0_YRQ5ntirs69d5HWQIs93tAU5byXdUmjo7ByV32RYUGrK6UGTTwqic484AZuQ26G_AeldbI2AHSLtSiHsbZMJki8QwUctePSkclkXUDBSLvYZsiNIBVmMRQmSJZ9Fxf-WzqxmQ"/>
+<div class="ml-4">
+<h3 class="font-serif font-bold text-lg text-yoga-earth">David Miller</h3>
+<p class="text-stone-400 text-sm">Hatha Yoga Student</p>
+</div>
+</div>
+<p class="text-stone-600 italic leading-relaxed testimonial-quote relative pl-4">
+            "As a beginner, I was nervous, but the instructor's gentle guidance made me feel welcome immediately. My back pain has significantly decreased after just two months."
+          </p>
+</div>
+<div class="mt-8 flex items-center text-yoga-clay">
+<svg class="w-5 h-5 fill-current" viewbox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+<svg class="w-5 h-5 fill-current" viewbox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+<svg class="w-5 h-5 fill-current" viewbox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+<svg class="w-5 h-5 fill-current" viewbox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+<svg class="w-5 h-5 fill-current opacity-30" viewbox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+</div>
+</article>
+<!-- Testimonial 3 -->
+<article class="bg-white p-8 rounded-2xl shadow-sm border border-stone-100 flex flex-col justify-between relative group hover:shadow-md transition-shadow">
+<div class="relative z-10">
+<div class="flex items-center mb-6">
+<img alt="Elena K." class="w-14 h-14 rounded-full object-cover border-2 border-yoga-sand" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD5uev9J8JNHIkRy7d8lndnXTxLg2OfJTiURtrbZYahAxkZd_aLjCKXJkUK7_kSzUGWesv2c_pWEKIowq4bSzi83lwEpoxxjuF0B51WpTK4PxzgZydeEb8dcsf-gGOBT1WZQDoT0i3N3V86ntoWm9bltq98_Oeizz1puwUoPzvAn0qAevFECd_2olXDS5EbzAkd3R8B328Q3R7cM-zX96AXbTK4klHq1PsPhPVzTppNwvNLE0299E-TXFL0_TjcXPGq5rYA2XDb_x0"/>
+<div class="ml-4">
+<h3 class="font-serif font-bold text-lg text-yoga-earth">Elena Kovac</h3>
+<p class="text-stone-400 text-sm">Vinyasa Enthusiast</p>
+</div>
+</div>
+<p class="text-stone-600 italic leading-relaxed testimonial-quote relative pl-4">
+            "The flow classes are vigorous yet meditative. I've found a community here that supports me beyond the mat. Truly life-affirming."
+          </p>
+</div>
+<div class="mt-8 flex items-center text-yoga-clay">
+<svg class="w-5 h-5 fill-current" viewbox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+<svg class="w-5 h-5 fill-current" viewbox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+<svg class="w-5 h-5 fill-current" viewbox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+<svg class="w-5 h-5 fill-current" viewbox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+<svg class="w-5 h-5 fill-current" viewbox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+</div>
+</article>
+</div>
+</main>
+<!-- END: Testimonials Grid -->
+<!-- BEGIN: Review Submission Modal (Hidden by Default) -->
+<div aria-modal="true" class="fixed inset-0 z-[100] hidden overflow-y-auto" id="reviewModal" role="dialog">
+<div class="flex items-center justify-center min-h-screen px-4 pt-4 pb-20 text-center sm:block sm:p-0">
+<!-- Backdrop -->
+<div class="fixed inset-0 transition-opacity bg-stone-900/60 backdrop-blur-sm" id="modalBackdrop"></div>
+<span aria-hidden="true" class="hidden sm:inline-block sm:align-middle sm:h-screen">​</span>
+<!-- Modal Content -->
+<div class="inline-block align-bottom bg-white rounded-3xl text-left overflow-hidden shadow-2xl transform transition-all sm:my-8 sm:align-middle sm:max-w-xl sm:w-full">
+<div class="bg-white px-6 py-8 sm:p-10">
+<div class="flex justify-between items-center mb-6">
+<h2 class="text-2xl font-serif font-bold text-yoga-earth">Share Your Story</h2>
+<button class="text-stone-400 hover:text-stone-600" id="closeModal">
+<svg class="w-6 h-6" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M6 18L18 6M6 6l12 12" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</button>
+</div>
+<form action="#" class="space-y-6" id="reviewForm" method="POST">
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+<div>
+<label class="block text-sm font-medium text-stone-700 mb-1" for="full-name">Full Name</label>
+<input class="w-full rounded-lg border-stone-200 focus:border-yoga-sage focus:ring-yoga-sage text-stone-800" id="full-name" name="full-name" required="" type="text"/>
+</div>
+<div>
+<label class="block text-sm font-medium text-stone-700 mb-1" for="practice-type">Your Practice</label>
+<select class="w-full rounded-lg border-stone-200 focus:border-yoga-sage focus:ring-yoga-sage text-stone-800" id="practice-type" name="practice-type">
+<option>Hatha Yoga</option>
+<option>Vinyasa Flow</option>
+<option>Restorative</option>
+<option>Meditation</option>
+<option>Private Session</option>
+</select>
+</div>
+</div>
+<div>
+<label class="block text-sm font-medium text-stone-700 mb-2">How would you rate your experience?</label>
+<div class="flex space-x-2 text-yoga-clay">
+<!-- Stars placeholder for UI -->
+<button class="w-8 h-8 focus:outline-none" type="button"><svg class="w-full h-full fill-current" viewbox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg></button>
+<button class="w-8 h-8 focus:outline-none" type="button"><svg class="w-full h-full fill-current" viewbox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg></button>
+<button class="w-8 h-8 focus:outline-none" type="button"><svg class="w-full h-full fill-current" viewbox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg></button>
+<button class="w-8 h-8 focus:outline-none" type="button"><svg class="w-full h-full fill-current" viewbox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg></button>
+<button class="w-8 h-8 focus:outline-none text-stone-200" type="button"><svg class="w-full h-full fill-current" viewbox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg></button>
+</div>
+</div>
+<div>
+<label class="block text-sm font-medium text-stone-700 mb-1" for="review-text">Your Story</label>
+<textarea class="w-full rounded-lg border-stone-200 focus:border-yoga-sage focus:ring-yoga-sage text-stone-800" id="review-text" name="review-text" placeholder="Tell us about your journey..." required="" rows="4"></textarea>
+<p class="mt-2 text-xs text-stone-400">Note: All reviews are moderated before being published to ensure a safe and positive community space.</p>
+</div>
+<button class="w-full py-4 bg-yoga-sage text-white rounded-xl font-bold hover:bg-opacity-90 transition-all shadow-md" type="submit">
+              Submit for Review
+            </button>
+</form>
+</div>
+</div>
+</div>
+</div>
+<!-- END: Review Submission Modal -->
+<!-- BEGIN: Footer -->
+<footer class="bg-yoga-earth text-yoga-sand py-12">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex flex-col md:flex-row justify-between items-center">
+<div class="mb-8 md:mb-0">
+<span class="font-serif text-3xl font-bold">OmYogVidya</span>
+<p class="mt-2 opacity-80">Finding peace in every breath.</p>
+</div>
+<div class="flex space-x-6">
+<a class="hover:text-yoga-clay transition-colors" href="#">Instagram</a>
+<a class="hover:text-yoga-clay transition-colors" href="#">Facebook</a>
+<a class="hover:text-yoga-clay transition-colors" href="#">Pinterest</a>
+</div>
+</div>
+<div class="mt-12 pt-8 border-t border-white/10 text-center text-sm opacity-60">© 2023 OmYogVidya Instructor. All rights reserved.</div>
+</div>
+</footer>
+<!-- END: Footer -->
+<!-- BEGIN: Scripts -->
+<script data-purpose="modal-functionality">
+    const modal = document.getElementById('reviewModal');
+    const openBtn = document.getElementById('openReviewBtn');
+    const closeBtn = document.getElementById('closeModal');
+    const backdrop = document.getElementById('modalBackdrop');
+    const form = document.getElementById('reviewForm');
+
+    function toggleModal() {
+      modal.classList.toggle('hidden');
+      document.body.classList.toggle('overflow-hidden');
+    }
+
+    openBtn.addEventListener('click', toggleModal);
+    closeBtn.addEventListener('click', toggleModal);
+    backdrop.addEventListener('click', toggleModal);
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      alert('Thank you for sharing! Your review has been submitted for moderation.');
+      toggleModal();
+    });
+  </script>
+<!-- END: Scripts -->
+</body></html>

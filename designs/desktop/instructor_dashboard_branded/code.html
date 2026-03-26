@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>OmYogVidya - Manage Session Slots</title>
+<!-- BEGIN: External Resources -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- END: External Resources -->
+<!-- BEGIN: Tailwind Configuration -->
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            sage: {
+              50: '#f4f7f4',
+              100: '#e6ede6',
+              200: '#d1ddd1',
+              600: '#7c967c',
+              800: '#4a5d4a',
+            },
+            cream: {
+              50: '#fdfbf7',
+              100: '#f9f3e9',
+            },
+            wood: {
+              500: '#a67c52',
+              600: '#8e6a46',
+              700: '#7a5a3a',
+            }
+          },
+          fontFamily: {
+            serif: ['Playfair Display', 'serif'],
+            sans: ['Inter', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+<!-- END: Tailwind Configuration -->
+<!-- BEGIN: Custom Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<!-- END: Custom Fonts -->
+<!-- BEGIN: Custom Styling -->
+<style data-purpose="layout-customizations">
+    /* Custom scrollbar for better UI feel */
+    .custom-scrollbar::-webkit-scrollbar {
+      width: 6px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-track {
+      background: #f9f3e9;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+      background: #d1ddd1;
+      border-radius: 10px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+      background: #7c967c;
+    }
+    h1, h2, h3, h4 {
+      font-family: 'Playfair Display', serif;
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+    }
+  </style>
+<!-- END: Custom Styling -->
+</head>
+<body class="bg-cream-50 font-sans text-stone-800">
+<!-- BEGIN: MainHeader -->
+<header class="bg-cream-50/90 backdrop-blur-md border-b border-sage-100 sticky top-0 z-30" data-purpose="primary-navigation">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+<div class="flex items-center gap-4">
+<div class="bg-sage-600 text-white p-2 rounded-lg">
+<svg class="w-6 h-6" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</div>
+<h1 class="text-xl font-bold tracking-widest text-sage-800 uppercase">OmYogVidya</h1>
+</div>
+<div class="flex items-center gap-4">
+<span class="text-xs font-medium uppercase tracking-wider text-stone-500 hidden sm:inline">Welcome back, Prof. Miller</span>
+<button class="bg-wood-500 hover:bg-wood-600 text-white px-4 py-2 rounded-md text-sm font-bold uppercase tracking-widest transition-colors shadow-sm" data-purpose="save-all-changes">
+          Save All Changes
+        </button>
+</div>
+</div>
+</header>
+<!-- END: MainHeader -->
+<!-- BEGIN: MainContent -->
+<main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 grid grid-cols-1 lg:grid-cols-12 gap-8">
+<!-- BEGIN: CalendarSection -->
+<section class="lg:col-span-8 space-y-6" data-purpose="calendar-container">
+<div class="bg-white rounded-xl border border-sage-100 shadow-sm overflow-hidden">
+<!-- Calendar Header -->
+<div class="p-6 border-b border-sage-50 flex items-center justify-between">
+<div>
+<h2 class="text-2xl font-bold text-stone-900">September 2023</h2>
+<p class="text-sm text-stone-500 italic">Manage your availability and session slots</p>
+</div>
+<div class="flex items-center gap-2">
+<button class="p-2 hover:bg-sage-50 text-stone-600 rounded-full transition-colors border border-sage-100">
+<svg class="h-5 w-5" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M15 19l-7-7 7-7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</button>
+<button class="p-2 hover:bg-sage-50 text-stone-600 rounded-full transition-colors border border-sage-100">
+<svg class="h-5 w-5" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</button>
+</div>
+</div>
+<!-- Calendar Grid -->
+<div class="grid grid-cols-7 border-b border-sage-100 bg-cream-100/30">
+<div class="py-3 text-center text-[10px] font-bold text-stone-400 uppercase tracking-[0.2em]">Sun</div>
+<div class="py-3 text-center text-[10px] font-bold text-stone-400 uppercase tracking-[0.2em]">Mon</div>
+<div class="py-3 text-center text-[10px] font-bold text-stone-400 uppercase tracking-[0.2em]">Tue</div>
+<div class="py-3 text-center text-[10px] font-bold text-stone-400 uppercase tracking-[0.2em]">Wed</div>
+<div class="py-3 text-center text-[10px] font-bold text-stone-400 uppercase tracking-[0.2em]">Thu</div>
+<div class="py-3 text-center text-[10px] font-bold text-stone-400 uppercase tracking-[0.2em]">Fri</div>
+<div class="py-3 text-center text-[10px] font-bold text-stone-400 uppercase tracking-[0.2em]">Sat</div>
+</div>
+<div class="grid grid-cols-7 text-sm" id="calendar-grid">
+<!-- Previous Month -->
+<div class="h-24 sm:h-32 border-b border-r border-sage-50 p-2 text-stone-300 bg-cream-50/30">27</div>
+<div class="h-24 sm:h-32 border-b border-r border-sage-50 p-2 text-stone-300 bg-cream-50/30">28</div>
+<div class="h-24 sm:h-32 border-b border-r border-sage-50 p-2 text-stone-300 bg-cream-50/30">29</div>
+<div class="h-24 sm:h-32 border-b border-r border-sage-50 p-2 text-stone-300 bg-cream-50/30">30</div>
+<div class="h-24 sm:h-32 border-b border-r border-sage-50 p-2 text-stone-300 bg-cream-50/30">31</div>
+<!-- Current Month Days -->
+<div class="h-24 sm:h-32 border-b border-r border-sage-50 p-2 hover:bg-sage-50 transition-colors cursor-pointer group">
+<span class="font-medium text-stone-700">1</span>
+<div class="mt-2 flex flex-col gap-1">
+<span class="bg-sage-100 text-sage-800 text-[10px] px-1.5 py-0.5 rounded border border-sage-200">2 slots</span>
+</div>
+</div>
+<div class="h-24 sm:h-32 border-b border-sage-50 p-2 hover:bg-sage-50 transition-colors cursor-pointer">
+<span class="font-medium text-stone-700">2</span>
+</div>
+<div class="h-24 sm:h-32 border-b border-r border-sage-50 p-2 hover:bg-sage-50 transition-colors cursor-pointer">3</div>
+<div class="h-24 sm:h-32 border-b border-r border-sage-50 p-2 hover:bg-sage-50 transition-colors cursor-pointer">4</div>
+<div class="h-24 sm:h-32 border-b border-r border-sage-50 p-2 ring-2 ring-wood-500 ring-inset bg-cream-100/50">
+<span class="font-bold text-wood-700">5</span>
+<div class="mt-2 flex flex-col gap-1">
+<span class="bg-wood-500 text-white text-[10px] px-1.5 py-0.5 rounded shadow-sm">Selected</span>
+<span class="bg-sage-100 text-sage-800 text-[10px] px-1.5 py-0.5 rounded border border-sage-200">4 slots</span>
+</div>
+</div>
+<div class="h-24 sm:h-32 border-b border-r border-sage-50 p-2 hover:bg-sage-50 transition-colors cursor-pointer">6</div>
+<div class="h-24 sm:h-32 border-b border-r border-sage-50 p-2 hover:bg-sage-50 transition-colors cursor-pointer">7</div>
+<div class="h-24 sm:h-32 border-b border-r border-sage-50 p-2 hover:bg-sage-50 transition-colors cursor-pointer">8</div>
+<div class="h-24 sm:h-32 border-b border-sage-50 p-2 hover:bg-sage-50 transition-colors cursor-pointer">9</div>
+<div class="h-24 sm:h-32 border-b border-r border-sage-50 p-2 hover:bg-sage-50 cursor-pointer">10</div>
+<div class="h-24 sm:h-32 border-b border-r border-sage-50 p-2 hover:bg-sage-50 cursor-pointer">11</div>
+<div class="h-24 sm:h-32 border-b border-r border-sage-50 p-2 hover:bg-sage-50 cursor-pointer">12</div>
+<div class="h-24 sm:h-32 border-b border-r border-sage-50 p-2 hover:bg-sage-50 cursor-pointer">13</div>
+<div class="h-24 sm:h-32 border-b border-r border-sage-50 p-2 hover:bg-sage-50 cursor-pointer">14</div>
+<div class="h-24 sm:h-32 border-b border-r border-sage-50 p-2 hover:bg-sage-50 cursor-pointer">15</div>
+<div class="h-24 sm:h-32 border-b border-sage-50 p-2 hover:bg-sage-50 cursor-pointer">16</div>
+</div>
+</div>
+</section>
+<!-- END: CalendarSection -->
+<!-- BEGIN: EditorSidebar -->
+<aside class="lg:col-span-4 space-y-6" data-purpose="slot-editor">
+<div class="bg-white rounded-xl border border-sage-100 shadow-sm sticky top-24">
+<div class="p-6 border-b border-sage-50">
+<div class="flex items-center justify-between mb-2">
+<h3 class="text-xl font-bold text-stone-900">Edit Day: Sept 5</h3>
+<span class="bg-sage-600 text-white text-[10px] px-2 py-0.5 rounded-full font-bold uppercase tracking-widest">Active</span>
+</div>
+<p class="text-sm text-stone-500 italic">Configure your availability for this specific date.</p>
+</div>
+<div class="p-6 space-y-6">
+<!-- Availability Toggle -->
+<div class="flex items-center justify-between">
+<div>
+<label class="text-sm font-bold text-stone-800" for="available-toggle">Accepting Bookings</label>
+<p class="text-xs text-stone-500">Enable or disable all slots for this day.</p>
+</div>
+<div class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" id="available-toggle" type="checkbox"/>
+<div class="w-11 h-6 bg-stone-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-sage-100 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-stone-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-sage-600"></div>
+</div>
+</div>
+<hr class="border-sage-50"/>
+<!-- Slots Management -->
+<div data-purpose="slots-list">
+<div class="flex items-center justify-between mb-4">
+<h4 class="text-sm font-bold text-stone-900 uppercase tracking-widest">Time Slots</h4>
+<button class="text-wood-500 hover:text-wood-700 text-xs font-bold flex items-center gap-1 uppercase tracking-widest transition-colors">
+<svg class="h-4 w-4" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 6v6m0 0v6m0-6h6m-6 0H6" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+                Add Slot
+              </button>
+</div>
+<div class="space-y-3 max-h-[400px] overflow-y-auto pr-2 custom-scrollbar">
+<!-- Slot Item 1 -->
+<div class="p-3 bg-cream-50 rounded-lg border border-sage-100 flex items-center justify-between gap-3 group">
+<div class="flex flex-col">
+<span class="text-[10px] font-bold text-stone-400 uppercase tracking-widest">09:00 AM - 10:00 AM</span>
+<span class="text-sm text-stone-700 font-medium">Standard Coaching</span>
+</div>
+<button class="text-stone-400 hover:text-red-500 transition-colors">
+<svg class="h-4 w-4" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</button>
+</div>
+<!-- Slot Item 2 -->
+<div class="p-3 bg-cream-50 rounded-lg border border-sage-100 flex items-center justify-between gap-3 group">
+<div class="flex flex-col">
+<span class="text-[10px] font-bold text-stone-400 uppercase tracking-widest">11:00 AM - 12:00 PM</span>
+<span class="text-sm text-stone-700 font-medium">Tech Interview Prep</span>
+</div>
+<button class="text-stone-400 hover:text-red-500 transition-colors">
+<svg class="h-4 w-4" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</button>
+</div>
+<!-- Slot Item 3 (Editing State) -->
+<div class="p-3 bg-sage-50/50 rounded-lg border border-sage-200 space-y-3">
+<div class="grid grid-cols-2 gap-2">
+<div class="space-y-1">
+<label class="text-[9px] uppercase font-bold text-stone-500 tracking-wider">Start Time</label>
+<input class="w-full text-xs rounded border-sage-200 focus:ring-sage-600 focus:border-sage-600 bg-white" type="time" value="14:00"/>
+</div>
+<div class="space-y-1">
+<label class="text-[9px] uppercase font-bold text-stone-500 tracking-wider">End Time</label>
+<input class="w-full text-xs rounded border-sage-200 focus:ring-sage-600 focus:border-sage-600 bg-white" type="time" value="15:30"/>
+</div>
+</div>
+<div class="space-y-1">
+<label class="text-[9px] uppercase font-bold text-stone-500 tracking-wider">Session Type</label>
+<select class="w-full text-xs rounded border-sage-200 focus:ring-sage-600 focus:border-sage-600 bg-white">
+<option>Consultation</option>
+<option selected="">Deep Dive</option>
+<option>Code Review</option>
+</select>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="p-6 bg-cream-100/50 border-t border-sage-50 rounded-b-xl flex gap-3">
+<button class="flex-1 bg-white border border-sage-200 text-stone-700 py-2 rounded-lg text-sm font-bold uppercase tracking-widest hover:bg-sage-50 transition-colors">Discard</button>
+<button class="flex-1 bg-sage-600 text-white py-2 rounded-lg text-sm font-bold uppercase tracking-widest hover:bg-sage-800 transition-colors shadow-sm">Save Day</button>
+</div>
+</div>
+</aside>
+<!-- END: EditorSidebar -->
+</main>
+<!-- END: MainContent -->
+<!-- BEGIN: InteractionLogic -->
+<script data-purpose="calendar-interactivity">
+    // Simple click handler for visual feedback on days
+    document.getElementById('calendar-grid').addEventListener('click', function(e) {
+      const dayCell = e.target.closest('.hover\\:bg-sage-50, .bg-cream-100\\/50');
+      if (dayCell) {
+        console.log('Day selected for editing');
+      }
+    });
+  </script>
+<!-- END: InteractionLogic -->
+</body></html>

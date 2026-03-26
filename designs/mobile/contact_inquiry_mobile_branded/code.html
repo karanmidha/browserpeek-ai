@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Contact | OmYogVidya</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&amp;family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        sage: {
+                            50: '#f4f7f4',
+                            100: '#e6ede6',
+                            200: '#d1ddd1',
+                            600: '#7c967c',
+                            800: '#4a5d4a',
+                        },
+                        cream: {
+                            50: '#fdfbf7',
+                            100: '#f9f3e9',
+                        },
+                        wood: {
+                            500: '#a67c52',
+                            700: '#7a5a3a',
+                        },
+                        "primary": "#7c967c", // sage-600
+                        "background-light": "#fdfbf7", // cream-50
+                    },
+                    fontFamily: {
+                        "serif": ["Playfair Display", "serif"],
+                        "sans": ["Inter", "sans-serif"],
+                        "display": ["Playfair Display", "serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        h1, h2, h3, .font-serif {
+            font-family: 'Playfair Display', serif;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .input-focus-effect:focus {
+          ring-color: rgba(124, 150, 124, 0.5);
+          border-color: #7c967c;
+        }
+    </style>
+<style>
+        body {
+            min-height: max(884px, 100dvh);
+        }
+    </style>
+</head>
+<body class="bg-cream-50 text-stone-800 antialiased min-h-screen">
+<div class="relative flex min-h-screen w-full flex-col max-w-md mx-auto bg-cream-50 overflow-x-hidden">
+<!-- Header -->
+<div class="flex items-center bg-cream-50 p-4 pb-2 sticky top-0 z-10 border-b border-sage-100">
+<button class="text-stone-800 flex size-12 shrink-0 items-center justify-center hover:bg-sage-100 rounded-full transition-colors">
+<span class="material-symbols-outlined">arrow_back</span>
+</button>
+<h2 class="text-stone-900 text-lg font-bold leading-tight tracking-tight flex-1 text-center pr-12 font-serif">Contact Us</h2>
+</div>
+<div class="flex-1 overflow-y-auto">
+<!-- Hero Title -->
+<div class="px-6 pt-10 pb-4 text-center">
+<h1 class="text-stone-900 tracking-tight text-4xl font-light leading-tight">Get in <span class="italic text-sage-600">Touch</span></h1>
+<p class="text-stone-600 text-sm font-normal leading-relaxed mt-4 max-w-xs mx-auto">
+                    Whether you're interested in a personal session or a corporate workshop, we're here to help you find the right path forward.
+                </p>
+</div>
+<!-- Form Container -->
+<div class="px-4 py-6">
+<div class="bg-white p-6 rounded-2xl shadow-sm border border-sage-100">
+<h2 class="text-2xl font-normal text-stone-900 mb-6 font-serif">Send an Inquiry</h2>
+<form class="space-y-5">
+<div class="flex flex-col gap-1.5">
+<label class="text-[10px] font-semibold text-stone-500 uppercase tracking-[0.15em]" for="full-name">Full Name</label>
+<input class="w-full rounded-lg border-stone-200 bg-cream-50 text-stone-900 focus:ring-2 focus:ring-sage-600 focus:border-sage-600 h-12 px-4 text-sm input-focus-effect" id="full-name" placeholder="" type="text"/>
+</div>
+<div class="flex flex-col gap-1.5">
+<label class="text-[10px] font-semibold text-stone-500 uppercase tracking-[0.15em]" for="email">Email Address</label>
+<input class="w-full rounded-lg border-stone-200 bg-cream-50 text-stone-900 focus:ring-2 focus:ring-sage-600 focus:border-sage-600 h-12 px-4 text-sm input-focus-effect" id="email" placeholder="" type="email"/>
+</div>
+<div class="flex flex-col gap-1.5">
+<label class="text-[10px] font-semibold text-stone-500 uppercase tracking-[0.15em]" for="subject">Subject</label>
+<select class="w-full rounded-lg border-stone-200 bg-cream-50 text-stone-900 focus:ring-2 focus:ring-sage-600 focus:border-sage-600 h-12 px-4 text-sm appearance-none input-focus-effect" id="subject">
+<option disabled="" selected="">Please select an option</option>
+<option value="personal">Personal Session</option>
+<option value="corporate">Corporate Workshop</option>
+<option value="collaboration">Collaboration</option>
+<option value="other">General Inquiry</option>
+</select>
+</div>
+<div class="flex flex-col gap-1.5">
+<label class="text-[10px] font-semibold text-stone-500 uppercase tracking-[0.15em]" for="message">Message</label>
+<textarea class="w-full rounded-lg border-stone-200 bg-cream-50 text-stone-900 focus:ring-2 focus:ring-sage-600 focus:border-sage-600 p-4 text-sm resize-none input-focus-effect" id="message" placeholder="How can we assist you?" rows="4"></textarea>
+</div>
+<button class="w-full bg-wood-500 hover:bg-wood-700 text-white font-bold py-4 rounded-lg text-xs uppercase tracking-widest transition-all active:scale-[0.98] mt-2" type="submit">
+                            Send Inquiry
+                        </button>
+</form>
+</div>
+</div>
+<!-- Contact Details -->
+<div class="px-6 py-10 mt-4 border-t border-sage-100 bg-cream-100">
+<h3 class="text-stone-900 text-2xl font-normal mb-8 font-serif">Contact Details</h3>
+<div class="space-y-8">
+<div class="flex items-start gap-4">
+<div class="flex-shrink-0 mt-1">
+<svg class="h-6 w-6 text-sage-600" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path>
+</svg>
+</div>
+<div>
+<p class="text-[10px] font-semibold uppercase tracking-widest text-stone-400">Email Us</p>
+<p class="text-sage-800 text-base font-medium">hello@omyogvidya.example</p>
+</div>
+</div>
+<div class="flex items-start gap-4">
+<div class="flex-shrink-0 mt-1">
+<svg class="h-6 w-6 text-sage-600" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path>
+<path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path>
+</svg>
+</div>
+<div>
+<p class="text-[10px] font-semibold uppercase tracking-widest text-stone-400">Location</p>
+<p class="text-sage-800 text-base font-medium leading-relaxed">Ubud, Bali &amp; Worldwide Online</p>
+</div>
+</div>
+</div>
+<!-- Connect Section -->
+<div class="mt-12">
+<h3 class="text-stone-900 text-2xl font-normal mb-6 font-serif">Connect With Us</h3>
+<div class="flex gap-4">
+<a aria-label="Instagram" class="p-3 bg-white border border-sage-100 rounded-full text-sage-600 hover:text-wood-500 hover:border-wood-500 transition-colors shadow-sm" href="#">
+<svg class="w-5 h-5" fill="currentColor" viewbox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.791-4-4s1.791-4 4-4 4 1.791 4 4-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"></path></svg>
+</a>
+<a aria-label="LinkedIn" class="p-3 bg-white border border-sage-100 rounded-full text-sage-600 hover:text-wood-500 hover:border-wood-500 transition-colors shadow-sm" href="#">
+<svg class="w-5 h-5" fill="currentColor" viewbox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"></path></svg>
+</a>
+<a aria-label="Twitter" class="p-3 bg-white border border-sage-100 rounded-full text-sage-600 hover:text-wood-500 hover:border-wood-500 transition-colors shadow-sm" href="#">
+<svg class="w-5 h-5" fill="currentColor" viewbox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path></svg>
+</a>
+</div>
+</div>
+<!-- Status Note -->
+<div class="mt-10 bg-sage-100/50 p-6 rounded-xl border border-sage-200">
+<p class="text-[10px] font-semibold text-sage-800 uppercase tracking-widest">Current Response Time</p>
+<p class="mt-2 text-stone-700 text-sm leading-relaxed">We typically respond to all inquiries within <span class="font-bold text-sage-800">24-48 business hours</span>.</p>
+</div>
+<!-- Footer Info -->
+<div class="mt-12 pt-8 border-t border-sage-200 text-center">
+<div class="text-lg font-bold text-sage-800 tracking-wider mb-2 uppercase">OMYOGVIDYA</div>
+<p class="text-stone-500 text-[10px] uppercase tracking-widest">© 2024 OmYogVidya Studio. All rights reserved.</p>
+</div>
+</div>
+</div>
+<!-- Bottom Navigation Bar -->
+<div class="flex gap-2 border-t border-sage-100 bg-white px-4 pb-6 pt-3 sticky bottom-0">
+<a class="flex flex-1 flex-col items-center justify-center gap-1 text-stone-400 hover:text-sage-600 transition-colors" href="#">
+<span class="material-symbols-outlined text-[22px]">home</span>
+<p class="text-[10px] font-bold uppercase tracking-wider">Home</p>
+</a>
+<a class="flex flex-1 flex-col items-center justify-center gap-1 text-stone-400 hover:text-sage-600 transition-colors" href="#">
+<span class="material-symbols-outlined text-[22px]">self_improvement</span>
+<p class="text-[10px] font-bold uppercase tracking-wider">Classes</p>
+</a>
+<a class="flex flex-1 flex-col items-center justify-center gap-1 text-stone-400 hover:text-sage-600 transition-colors" href="#">
+<span class="material-symbols-outlined text-[22px]">event</span>
+<p class="text-[10px] font-bold uppercase tracking-wider">Events</p>
+</a>
+<a class="flex flex-1 flex-col items-center justify-center gap-1 text-sage-600" href="#">
+<span class="material-symbols-outlined text-[22px]" style="font-variation-settings: 'FILL' 1;">call</span>
+<p class="text-[10px] font-bold uppercase tracking-wider">Contact</p>
+</a>
+</div>
+</div>
+</body></html>

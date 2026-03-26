@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#4a6741", // Earthy green
+                        "secondary": "#8c6239", // Earthy brown
+                        "accent": "#d4a373", // Sandy tan
+                        "background-light": "#fdfaf6",
+                        "background-dark": "#1a1c18",
+                    },
+                    fontFamily: {
+                        "display": ["Public Sans"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Public Sans', sans-serif;
+        }
+        body {
+            min-height: max(884px, 100dvh);
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 min-h-screen font-display">
+<!-- Header Navigation -->
+<header class="sticky top-0 z-50 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md border-b border-primary/10">
+<div class="flex items-center p-4 justify-between max-w-md mx-auto">
+<div class="text-primary flex size-10 shrink-0 items-center justify-center rounded-full bg-primary/10 cursor-pointer">
+<span class="material-symbols-outlined">arrow_back</span>
+</div>
+<h1 class="text-lg font-bold leading-tight tracking-tight flex-1 text-center pr-10">Testimonials</h1>
+</div>
+</header>
+<main class="max-w-md mx-auto pb-24 px-4">
+<!-- Hero Section -->
+<section class="py-8 text-center">
+<h2 class="text-primary text-3xl font-bold leading-tight mb-2">Our Shared Journey</h2>
+<p class="text-slate-600 dark:text-slate-400 text-sm italic">Voices from our global OmYogVidya community</p>
+</section>
+<!-- Testimonial Stack -->
+<div class="space-y-6">
+<!-- Card 1: Sarah Jenkins -->
+<div class="bg-white dark:bg-slate-800/50 rounded-xl overflow-hidden shadow-sm border border-primary/5">
+<div class="w-full h-48 bg-center bg-cover" data-alt="Woman practicing yoga outdoors during sunset" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCJ_XtX8MXkRYK5c9eqMJPoznuwGqntA9hRZSsYlJ8DA91ScAJNbGmYij5uROxxB6gT5E_8-O_TJlxkdSpjGrftKSfBO9wS77hfAMzaiGVj42QbVQF0sPn-DvZg4GndXSeq-D9-kbO_wooHt9msY27uGBGRh9KoxTkCdIvE6G4v0HsUZbvDg69Q20XFa3eAzADqMIiAzuCVI2xP46261609v7ibfDH2CKuudcAJpJJoGPqYMA3rF2dxot2pRK3HxfAXkdhsMq9DUE4');">
+</div>
+<div class="p-5">
+<div class="flex items-center justify-between mb-2">
+<div>
+<h3 class="text-lg font-bold">Sarah Jenkins</h3>
+<p class="text-secondary text-sm font-medium">Yoga Practitioner</p>
+</div>
+<div class="flex text-accent">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1">star</span>
+</div>
+</div>
+<p class="text-slate-700 dark:text-slate-300 italic leading-relaxed">
+                        "Yoga with OmYogVidya has completely transformed my physical and mental well-being. The instructors are incredibly patient and knowledgeable."
+                    </p>
+</div>
+</div>
+<!-- Card 2: David Miller -->
+<div class="bg-white dark:bg-slate-800/50 rounded-xl overflow-hidden shadow-sm border border-primary/5">
+<div class="w-full h-48 bg-center bg-cover" data-alt="Man meditating in a peaceful zen garden" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDt8rFfAWseY1OcjrrLQZJvECzdkQ_UXvD2B0clu5W5jx7-G8IP4PndVEH4XmhvbDJVCkzo5-1uUYmLgAwZHh_RmDaszs1OiASShElJ4uWpq1R9BmpXpEwmWB2QDgJQIH4RL72RdegxJlvepGg_1XaxL78F4-R2YYM2xA9j56KcGqlOfPLr5v0OV7n2w42qT1dnBvoOYeTVui9O5oX5FXfQvdj3Z7bpv3za1j1Y4oU1lSchSu63Zv9LGJQaJnIl6KhETEDfEvXKh6E');">
+</div>
+<div class="p-5">
+<div class="flex items-center justify-between mb-2">
+<div>
+<h3 class="text-lg font-bold">David Miller</h3>
+<p class="text-secondary text-sm font-medium">Meditation Student</p>
+</div>
+<div class="flex text-accent">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1">star</span>
+</div>
+</div>
+<p class="text-slate-700 dark:text-slate-300 italic leading-relaxed">
+                        "The mindfulness sessions have helped me manage high-stress work life. I've found a sense of inner peace I never thought possible with OmYogVidya."
+                    </p>
+</div>
+</div>
+<!-- Card 3: Elena Kovac -->
+<div class="bg-white dark:bg-slate-800/50 rounded-xl overflow-hidden shadow-sm border border-primary/5">
+<div class="w-full h-48 bg-center bg-cover" data-alt="Woman in advanced yoga pose in a studio" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBvIeWF3ijiANtAE2aigEEh2bDbc_GnS8PFbFBtQBf63XLWGisaKDJtxd0mVVxIQuwmg-IHfMHpvwR1q0GxPuQ-g4P7oSC_T146ni0EE0yC3782kGpR0QtTBOdgWiy8mKr_MRcTcwFrA1l1P12YuIiO6EuqEW4VZty6Zxb8Ow6DAI51_HHTL1WkJLhnWFl1ZRS3sD0M_OQle9BGmYF9rzDXiKC9Uc_OtEnwlb01-DkZM5QBW_R1Bsxp2gpZA7nu61AUGrR9oA3jU3Y');">
+</div>
+<div class="p-5">
+<div class="flex items-center justify-between mb-2">
+<div>
+<h3 class="text-lg font-bold">Elena Kovac</h3>
+<p class="text-secondary text-sm font-medium">Advanced Student</p>
+</div>
+<div class="flex text-accent">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1">star</span>
+</div>
+</div>
+<p class="text-slate-700 dark:text-slate-300 italic leading-relaxed">
+                        "The depth of spiritual teaching at OmYogVidya is unmatched. It's not just physical exercise; it's a true path to self-discovery."
+                    </p>
+</div>
+</div>
+</div>
+<!-- CTA Button -->
+<div class="mt-10 mb-8">
+<button class="w-full py-4 bg-primary text-white rounded-xl font-bold shadow-lg shadow-primary/20 flex items-center justify-center gap-2">
+<span class="material-symbols-outlined">rate_review</span>
+                Share Your Experience
+            </button>
+</div>
+</main>
+<!-- Bottom Navigation Bar -->
+<nav class="fixed bottom-0 left-0 right-0 z-50 bg-white/90 dark:bg-background-dark/90 backdrop-blur-lg border-t border-primary/10">
+<div class="flex gap-2 px-4 pb-6 pt-3 max-w-md mx-auto">
+<a class="flex flex-1 flex-col items-center justify-center gap-1 text-slate-400 dark:text-slate-500" href="#">
+<span class="material-symbols-outlined">home</span>
+<p class="text-[10px] font-medium leading-normal">Home</p>
+</a>
+<a class="flex flex-1 flex-col items-center justify-center gap-1 text-slate-400 dark:text-slate-500" href="#">
+<span class="material-symbols-outlined">spa</span>
+<p class="text-[10px] font-medium leading-normal">Classes</p>
+</a>
+<a class="flex flex-1 flex-col items-center justify-center gap-1 text-primary" href="#">
+<div class="bg-primary/10 p-1 rounded-lg">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1">forum</span>
+</div>
+<p class="text-[10px] font-medium leading-normal">Journey</p>
+</a>
+<a class="flex flex-1 flex-col items-center justify-center gap-1 text-slate-400 dark:text-slate-500" href="#">
+<span class="material-symbols-outlined">person</span>
+<p class="text-[10px] font-medium leading-normal">Profile</p>
+</a>
+</div>
+</nav>
+</body></html>

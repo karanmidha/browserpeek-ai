@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Contact &amp; Inquiry | OmYogVidya</title>
+<!-- Tailwind CSS v3 with plugins -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Configuration matching brand -->
+<script>
+        tailwind.config = {
+          theme: {
+            extend: {
+              colors: {
+                sage: {
+                  50: '#f4f7f4',
+                  100: '#e6ede6',
+                  200: '#d1ddd1',
+                  600: '#7c967c',
+                  800: '#4a5d4a',
+                },
+                cream: {
+                  50: '#fdfbf7',
+                  100: '#f9f3e9',
+                },
+                wood: {
+                  500: '#a67c52',
+                  700: '#7a5a3a',
+                }
+              },
+              fontFamily: {
+                serif: ['Playfair Display', 'serif'],
+                sans: ['Inter', 'sans-serif'],
+              }
+            }
+          }
+        }
+    </script>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&amp;family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
+<style data-purpose="custom-typography">
+        h1, h2, h3 {
+          font-family: 'Playfair Display', serif;
+        }
+        body {
+          font-family: 'Inter', sans-serif;
+        }
+    </style>
+<style data-purpose="form-animations">
+        .input-focus-effect:focus {
+          ring-color: rgba(124, 150, 124, 0.5); /* sage-600 */
+          border-color: #7c967c;
+          transition: all 0.3s ease;
+        }
+        .submit-btn-hover:hover {
+          transform: translateY(-1px);
+          box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+    </style>
+</head>
+<body class="bg-cream-50 text-stone-800 antialiased">
+<!-- BEGIN: MainHeader -->
+<header class="py-16 px-6 text-center" data-purpose="page-header">
+<h1 class="text-4xl font-light tracking-tight text-stone-900 sm:text-5xl lg:text-6xl">Get in <span class="italic text-sage-600">Touch</span></h1>
+<p class="mt-6 text-lg text-stone-600 max-w-2xl mx-auto leading-relaxed">
+        Whether you're interested in a personal session or a corporate workshop, we're here to help you find the right path forward.
+    </p>
+</header>
+<!-- END: MainHeader -->
+<!-- BEGIN: ContactSection -->
+<main class="max-w-7xl mx-auto px-6 pb-24">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+<!-- BEGIN: InquiryFormContainer -->
+<section class="bg-white p-8 md:p-12 rounded-2xl shadow-sm border border-sage-100" data-purpose="inquiry-form-container">
+<h2 class="text-3xl font-normal text-stone-900 mb-8">Send an Inquiry</h2>
+<form action="#" class="space-y-6" data-purpose="contact-form" method="POST">
+<!-- User Name -->
+<div class="grid grid-cols-1 gap-1">
+<label class="text-xs font-semibold text-stone-500 uppercase tracking-widest" for="full-name">Full Name</label>
+<input autocomplete="name" class="block w-full rounded-lg border-stone-200 bg-cream-50 px-4 py-3 text-stone-900 focus:ring-2 focus:ring-sage-600 focus:border-sage-600 input-focus-effect" id="full-name" name="full-name" required="" type="text"/>
+</div>
+<!-- Email Address -->
+<div class="grid grid-cols-1 gap-1">
+<label class="text-xs font-semibold text-stone-500 uppercase tracking-widest" for="email">Email Address</label>
+<input autocomplete="email" class="block w-full rounded-lg border-stone-200 bg-cream-50 px-4 py-3 text-stone-900 focus:ring-2 focus:ring-sage-600 focus:border-sage-600 input-focus-effect" id="email" name="email" required="" type="email"/>
+</div>
+<!-- Subject Selection -->
+<div class="grid grid-cols-1 gap-1">
+<label class="text-xs font-semibold text-stone-500 uppercase tracking-widest" for="subject">Subject</label>
+<select class="block w-full rounded-lg border-stone-200 bg-cream-50 px-4 py-3 text-stone-900 focus:ring-2 focus:ring-sage-600 focus:border-sage-600 input-focus-effect" id="subject" name="subject" required="">
+<option disabled="" selected="" value="">Please select an option</option>
+<option value="personal">Personal Session</option>
+<option value="corporate">Corporate Workshop</option>
+<option value="collaboration">Collaboration</option>
+<option value="other">General Inquiry</option>
+</select>
+</div>
+<!-- Message Area -->
+<div class="grid grid-cols-1 gap-1">
+<label class="text-xs font-semibold text-stone-500 uppercase tracking-widest" for="message">Message</label>
+<textarea class="block w-full rounded-lg border-stone-200 bg-cream-50 px-4 py-3 text-stone-900 focus:ring-2 focus:ring-sage-600 focus:border-sage-600 input-focus-effect" id="message" name="message" placeholder="How can we assist you?" required="" rows="5"></textarea>
+</div>
+<!-- Submit Button -->
+<div class="pt-4">
+<button class="w-full bg-wood-500 hover:bg-wood-700 text-white py-4 px-6 rounded-lg font-bold uppercase tracking-widest transition-all duration-200 submit-btn-hover active:scale-[0.98]" type="submit">
+                        Send Inquiry
+                    </button>
+</div>
+</form>
+</section>
+<!-- END: InquiryFormContainer -->
+<!-- BEGIN: ContactDetailsContainer -->
+<aside class="space-y-12 lg:pl-8" data-purpose="contact-info-sidebar">
+<!-- Direct Contact Info -->
+<section data-purpose="office-info">
+<h2 class="text-3xl font-normal text-stone-900 mb-8">Contact Details</h2>
+<div class="space-y-8">
+<div class="flex items-start">
+<div class="flex-shrink-0 mt-1">
+<svg class="h-6 w-6 text-sage-600" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path>
+</svg>
+</div>
+<div class="ml-4">
+<p class="text-xs font-semibold text-stone-400 uppercase tracking-widest">Email Us</p>
+<p class="mt-1 text-lg text-sage-800">hello@omyogvidya.example</p>
+</div>
+</div>
+<div class="flex items-start">
+<div class="flex-shrink-0 mt-1">
+<svg class="h-6 w-6 text-sage-600" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path>
+<path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path>
+</svg>
+</div>
+<div class="ml-4">
+<p class="text-xs font-semibold text-stone-400 uppercase tracking-widest">Location</p>
+<p class="mt-1 text-lg text-sage-800">Ubud, Bali &amp; Worldwide Online</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Social Media Links -->
+<section data-purpose="social-links">
+<h2 class="text-3xl font-normal text-stone-900 mb-8">Connect With Us</h2>
+<div class="flex gap-4">
+<!-- Instagram -->
+<a aria-label="Instagram" class="p-3 bg-white border border-sage-100 rounded-full text-sage-600 hover:text-wood-500 hover:border-wood-500 transition-colors shadow-sm" href="#">
+<svg class="w-6 h-6" fill="currentColor" viewbox="0 0 24 24">
+<path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.791-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.209-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"></path>
+</svg>
+</a>
+<!-- LinkedIn -->
+<a aria-label="LinkedIn" class="p-3 bg-white border border-sage-100 rounded-full text-sage-600 hover:text-wood-500 hover:border-wood-500 transition-colors shadow-sm" href="#">
+<svg class="w-6 h-6" fill="currentColor" viewbox="0 0 24 24">
+<path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"></path>
+</svg>
+</a>
+<!-- Twitter/X -->
+<a aria-label="Twitter" class="p-3 bg-white border border-sage-100 rounded-full text-sage-600 hover:text-wood-500 hover:border-wood-500 transition-colors shadow-sm" href="#">
+<svg class="w-6 h-6" fill="currentColor" viewbox="0 0 24 24">
+<path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path>
+</svg>
+</a>
+</div>
+</section>
+<!-- Availability Note -->
+<section class="bg-sage-100/50 p-6 rounded-xl border border-sage-200" data-purpose="availability-status">
+<p class="text-xs font-semibold text-sage-800 uppercase tracking-widest">Current Response Time</p>
+<p class="mt-2 text-stone-700 leading-relaxed">We typically respond to all inquiries within <span class="font-bold text-sage-800">24-48 business hours</span>.</p>
+</section>
+</aside>
+<!-- END: ContactDetailsContainer -->
+</div>
+</main>
+<!-- END: ContactSection -->
+<!-- BEGIN: Footer -->
+<footer class="border-t border-sage-100 py-12 px-6 bg-cream-100" data-purpose="site-footer">
+<div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
+<div class="flex flex-col items-center md:items-start">
+<div class="text-xl font-bold text-sage-800 tracking-wide mb-2 uppercase">OMYOGVIDYA</div>
+<div class="text-stone-500 text-sm">
+                © 2024 OmYogVidya Studio. All rights reserved.
+            </div>
+</div>
+<nav class="flex gap-10 text-xs font-bold uppercase tracking-widest text-stone-600">
+<a class="hover:text-wood-500 transition-colors" href="#">Instagram</a>
+<a class="hover:text-wood-500 transition-colors" href="#">Facebook</a>
+<a class="hover:text-wood-500 transition-colors" href="#">Newsletter</a>
+</nav>
+</div>
+</footer>
+<!-- END: Footer -->
+</body></html>

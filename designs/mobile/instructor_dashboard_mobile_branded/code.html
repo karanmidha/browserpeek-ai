@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>OmYogVidya Instructor Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        sage: {
+                            50: '#f4f7f4',
+                            100: '#e6ede6',
+                            200: '#d1ddd1',
+                            600: '#7c967c',
+                            800: '#4a5d4a',
+                        },
+                        cream: {
+                            50: '#fdfbf7',
+                            100: '#f9f3e9',
+                        },
+                        wood: {
+                            500: '#a67c52',
+                            600: '#8e6a46',
+                            700: '#7a5a3a',
+                        }
+                    },
+                    fontFamily: {
+                        serif: ['Playfair Display', 'serif'],
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            min-height: max(884px, 100dvh);
+            font-family: 'Inter', sans-serif;
+        }
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #d1ddd1;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body class="bg-cream-50 text-stone-800">
+<div class="relative flex min-h-screen w-full flex-col overflow-x-hidden">
+<!-- Header -->
+<header class="flex items-center bg-cream-50/90 backdrop-blur-md p-4 justify-between border-b border-sage-100 sticky top-0 z-30">
+<div class="text-sage-800 flex size-10 shrink-0 items-center justify-center">
+<span class="material-symbols-outlined">menu</span>
+</div>
+<h1 class="text-sage-800 text-lg font-bold tracking-widest uppercase flex-1 text-center">OmYogVidya</h1>
+<div class="flex w-10 items-center justify-end">
+<button class="bg-wood-500 text-white p-2 rounded-lg shadow-sm">
+<span class="material-symbols-outlined text-sm">save</span>
+</button>
+</div>
+</header>
+<!-- Navigation Tabs -->
+<nav class="bg-white/50 border-b border-sage-100">
+<div class="flex px-4 gap-8">
+<a class="flex flex-col items-center justify-center border-b-2 border-sage-600 text-sage-800 pb-3 pt-4" href="#">
+<p class="text-xs font-bold uppercase tracking-widest">Calendar</p>
+</a>
+<a class="flex flex-col items-center justify-center border-b-2 border-transparent text-stone-400 pb-3 pt-4" href="#">
+<p class="text-xs font-bold uppercase tracking-widest">Time Slots</p>
+</a>
+</div>
+</nav>
+<!-- Main Content -->
+<main class="flex-1 flex flex-col p-4 gap-6">
+<!-- Calendar Section -->
+<section class="bg-white rounded-xl border border-sage-100 shadow-sm overflow-hidden">
+<div class="p-4 border-b border-sage-50 flex items-center justify-between">
+<div>
+<h2 class="text-xl font-bold text-stone-900">September 2023</h2>
+<p class="text-[10px] text-stone-500 italic">Manage availability &amp; slots</p>
+</div>
+<div class="flex items-center gap-1">
+<button class="p-1.5 hover:bg-sage-50 text-stone-600 rounded-full border border-sage-100">
+<span class="material-symbols-outlined text-sm">chevron_left</span>
+</button>
+<button class="p-1.5 hover:bg-sage-50 text-stone-600 rounded-full border border-sage-100">
+<span class="material-symbols-outlined text-sm">chevron_right</span>
+</button>
+</div>
+</div>
+<div class="grid grid-cols-7 bg-cream-100/30 border-b border-sage-100">
+<div class="py-2 text-center text-[9px] font-bold text-stone-400 uppercase tracking-widest">Sun</div>
+<div class="py-2 text-center text-[9px] font-bold text-stone-400 uppercase tracking-widest">Mon</div>
+<div class="py-2 text-center text-[9px] font-bold text-stone-400 uppercase tracking-widest">Tue</div>
+<div class="py-2 text-center text-[9px] font-bold text-stone-400 uppercase tracking-widest">Wed</div>
+<div class="py-2 text-center text-[9px] font-bold text-stone-400 uppercase tracking-widest">Thu</div>
+<div class="py-2 text-center text-[9px] font-bold text-stone-400 uppercase tracking-widest">Fri</div>
+<div class="py-2 text-center text-[9px] font-bold text-stone-400 uppercase tracking-widest">Sat</div>
+</div>
+<div class="grid grid-cols-7 text-xs">
+<!-- Previous month padding -->
+<div class="h-16 border-b border-r border-sage-50 p-1 text-stone-300 bg-cream-50/30">27</div>
+<div class="h-16 border-b border-r border-sage-50 p-1 text-stone-300 bg-cream-50/30">28</div>
+<div class="h-16 border-b border-r border-sage-50 p-1 text-stone-300 bg-cream-50/30">29</div>
+<div class="h-16 border-b border-r border-sage-50 p-1 text-stone-300 bg-cream-50/30">30</div>
+<div class="h-16 border-b border-r border-sage-50 p-1 text-stone-300 bg-cream-50/30">31</div>
+<!-- Current month days -->
+<div class="h-16 border-b border-r border-sage-50 p-1 hover:bg-sage-50 cursor-pointer">
+<span class="text-stone-700">1</span>
+<div class="mt-1"><span class="bg-sage-100 text-sage-800 text-[8px] px-1 rounded border border-sage-200 block truncate">2 slots</span></div>
+</div>
+<div class="h-16 border-b border-sage-50 p-1 hover:bg-sage-50 cursor-pointer">
+<span class="text-stone-700">2</span>
+</div>
+<div class="h-16 border-b border-r border-sage-50 p-1 hover:bg-sage-50 cursor-pointer">3</div>
+<div class="h-16 border-b border-r border-sage-50 p-1 hover:bg-sage-50 cursor-pointer">4</div>
+<!-- Selected Day -->
+<div class="h-16 border-b border-r border-sage-50 p-1 bg-cream-100/50 ring-2 ring-wood-500 ring-inset">
+<span class="font-bold text-wood-700">5</span>
+<div class="mt-1 space-y-0.5">
+<span class="bg-wood-500 text-white text-[8px] px-1 rounded block truncate text-center">Selected</span>
+<span class="bg-sage-100 text-sage-800 text-[8px] px-1 rounded border border-sage-200 block truncate text-center">4 slots</span>
+</div>
+</div>
+<div class="h-16 border-b border-r border-sage-50 p-1 hover:bg-sage-50 cursor-pointer">6</div>
+<div class="h-16 border-b border-r border-sage-50 p-1 hover:bg-sage-50 cursor-pointer">7</div>
+<div class="h-16 border-b border-r border-sage-50 p-1 hover:bg-sage-50 cursor-pointer">8</div>
+<div class="h-16 border-b border-sage-50 p-1 hover:bg-sage-50 cursor-pointer">9</div>
+</div>
+</section>
+<!-- Availability Settings -->
+<section class="flex flex-col gap-4">
+<div class="bg-white rounded-xl border border-sage-100 shadow-sm p-4">
+<div class="flex items-center justify-between mb-4">
+<h3 class="text-lg font-bold text-stone-900">Edit Day: Sept 5</h3>
+<span class="bg-sage-600 text-white text-[9px] px-2 py-0.5 rounded-full font-bold uppercase tracking-widest">Active</span>
+</div>
+<div class="flex items-center justify-between py-2">
+<div>
+<p class="text-sm font-bold text-stone-800">Accepting Bookings</p>
+<p class="text-[10px] text-stone-500">Enable or disable all slots for this day.</p>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-11 h-6 bg-stone-200 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-stone-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-sage-600"></div>
+</label>
+</div>
+<hr class="my-4 border-sage-50"/>
+<div class="flex items-center justify-between mb-4">
+<h4 class="text-xs font-bold text-stone-900 uppercase tracking-widest">Time Slots</h4>
+<button class="text-wood-500 text-[10px] font-bold flex items-center gap-1 uppercase tracking-widest">
+<span class="material-symbols-outlined text-sm">add</span> Add Slot
+                    </button>
+</div>
+<div class="space-y-3 custom-scrollbar">
+<!-- Read-only slots matching desktop version items -->
+<div class="p-3 bg-cream-50 rounded-lg border border-sage-100 flex items-center justify-between gap-3">
+<div class="flex flex-col">
+<span class="text-[9px] font-bold text-stone-400 uppercase tracking-widest">09:00 AM - 10:00 AM</span>
+<span class="text-xs text-stone-700 font-medium">Standard Coaching</span>
+</div>
+<button class="text-stone-400"><span class="material-symbols-outlined text-lg">delete</span></button>
+</div>
+<div class="p-3 bg-cream-50 rounded-lg border border-sage-100 flex items-center justify-between gap-3">
+<div class="flex flex-col">
+<span class="text-[9px] font-bold text-stone-400 uppercase tracking-widest">11:00 AM - 12:00 PM</span>
+<span class="text-xs text-stone-700 font-medium">Tech Interview Prep</span>
+</div>
+<button class="text-stone-400"><span class="material-symbols-outlined text-lg">delete</span></button>
+</div>
+<!-- Slot Editing State matching desktop -->
+<div class="p-3 bg-sage-50/50 rounded-lg border border-sage-200 space-y-3">
+<div class="grid grid-cols-2 gap-2">
+<div class="space-y-1">
+<label class="text-[8px] uppercase font-bold text-stone-500 tracking-wider">Start Time</label>
+<input class="w-full text-xs rounded-md border-sage-200 focus:ring-sage-600 focus:border-sage-600 bg-white py-1" type="time" value="14:00"/>
+</div>
+<div class="space-y-1">
+<label class="text-[8px] uppercase font-bold text-stone-500 tracking-wider">End Time</label>
+<input class="w-full text-xs rounded-md border-sage-200 focus:ring-sage-600 focus:border-sage-600 bg-white py-1" type="time" value="15:30"/>
+</div>
+</div>
+<div class="space-y-1">
+<label class="text-[8px] uppercase font-bold text-stone-500 tracking-wider">Session Type</label>
+<select class="w-full text-xs rounded-md border-sage-200 focus:ring-sage-600 focus:border-sage-600 bg-white py-1">
+<option>Consultation</option>
+<option selected="">Deep Dive</option>
+<option>Code Review</option>
+</select>
+</div>
+</div>
+</div>
+</div>
+<!-- Action Buttons -->
+<div class="grid grid-cols-2 gap-4 mt-2 mb-20">
+<button class="bg-white border border-sage-200 text-stone-700 font-bold py-3 rounded-xl uppercase tracking-widest text-xs">
+                    Discard
+                </button>
+<button class="bg-sage-600 text-white font-bold py-3 rounded-xl shadow-md shadow-sage-200/50 uppercase tracking-widest text-xs">
+                    Save Day
+                </button>
+</div>
+</section>
+</main>
+<!-- Bottom Navigation -->
+<div class="fixed bottom-0 left-0 right-0 border-t border-sage-100 bg-white/90 backdrop-blur-md px-4 pb-6 pt-2 z-20">
+<div class="flex gap-2">
+<a class="flex flex-1 flex-col items-center justify-center gap-1 text-stone-400" href="#">
+<span class="material-symbols-outlined">home</span>
+<p class="text-[9px] font-bold uppercase tracking-widest">Home</p>
+</a>
+<a class="flex flex-1 flex-col items-center justify-center gap-1 text-sage-600" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">calendar_month</span>
+<p class="text-[9px] font-bold uppercase tracking-widest">Schedule</p>
+</a>
+<a class="flex flex-1 flex-col items-center justify-center gap-1 text-stone-400" href="#">
+<span class="material-symbols-outlined">payments</span>
+<p class="text-[9px] font-bold uppercase tracking-widest">Earnings</p>
+</a>
+<a class="flex flex-1 flex-col items-center justify-center gap-1 text-stone-400" href="#">
+<span class="material-symbols-outlined">person</span>
+<p class="text-[9px] font-bold uppercase tracking-widest">Profile</p>
+</a>
+</div>
+</div>
+</div>
+</body></html>

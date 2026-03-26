@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#a67c52", // wood-500
+                        "primary-dark": "#7a5a3a", // wood-700
+                        "sage": {
+                            50: '#f4f7f4',
+                            100: '#e6ede6',
+                            200: '#d1ddd1',
+                            600: '#7c967c',
+                            800: '#4a5d4a',
+                        },
+                        "cream": {
+                            50: '#fdfbf7',
+                            100: '#f9f3e9',
+                        },
+                        "background-light": "#fdfbf7",
+                        "background-dark": "#1a1a1a",
+                    },
+                    fontFamily: {
+                        "display": ["Playfair Display", "serif"],
+                        "sans": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3, h4, .font-serif { font-family: 'Playfair Display', serif; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        
+        .hero-gradient {
+            background: linear-gradient(to top, rgba(74, 93, 74, 0.8), transparent);
+        }
+    </style>
+</head>
+<body class="bg-cream-50 dark:bg-background-dark text-stone-800 dark:text-slate-100 transition-colors duration-300">
+<div class="relative flex min-h-screen w-full flex-col overflow-x-hidden">
+<!-- Top Navigation -->
+<header class="sticky top-0 z-50 flex items-center bg-cream-50/80 dark:bg-background-dark/80 backdrop-blur-md px-4 py-3 justify-between border-b border-sage-100 dark:border-white/10">
+<div class="text-sage-800 dark:text-sage-200 flex size-10 shrink-0 items-center justify-center">
+<span class="material-symbols-outlined text-3xl">menu</span>
+</div>
+<h2 class="text-stone-900 dark:text-slate-100 text-lg font-bold leading-tight tracking-tight flex-1 text-center font-display">OmYogVidya</h2>
+<div class="flex w-10 items-center justify-end">
+<button class="flex size-10 items-center justify-center rounded-full bg-sage-100 dark:bg-white/10 text-sage-800 dark:text-sage-200">
+<span class="material-symbols-outlined">person</span>
+</button>
+</div>
+</header>
+<main class="flex-1">
+<!-- Hero Section -->
+<section class="p-4">
+<div class="relative aspect-[4/5] w-full overflow-hidden rounded-2xl bg-sage-100 dark:bg-slate-800">
+<div class="absolute inset-0 bg-cover bg-center" data-alt="Serene yoga instructor posing in sunset" style='background-image: linear-gradient(to top, rgba(74, 93, 74, 0.8), transparent), url("https://lh3.googleusercontent.com/aida-public/AB6AXuBlVPvIK4-yoiX72Jc1kVx9uVHzxVR66uUKfD_jwtcuJQ0VLiDfwj67UoQ_f9uVBKFfhQZj8xuwnYLTu_x0p2G8zO3S6a0fep2QBoL6bl9cS3FLDXt0hW5dHZxcx9VXHSQcrDI7hEbZAOIpSKdUMWphH7uH1H0a1uMfwSABsbRy_tWA7EYY0VF-DBfszGW8Gi7w3NxOVyA4rYiBp20aNP-AheHPUjNH334lCoFBlXTncmse5Ft1OpYYlNuRDCe8ErMMSslgXt8o8Nw")'></div>
+<div class="absolute inset-0 flex flex-col justify-end p-8">
+<h1 class="text-white text-4xl font-bold leading-tight mb-3 font-display">Find Your Inner Peace</h1>
+<p class="text-white/90 text-lg mb-8 font-serif italic">"Yoga is the journey of the self, through the self, to the self."</p>
+<button class="w-full bg-primary hover:bg-primary-dark text-white py-4 rounded-xl font-bold text-lg shadow-lg shadow-primary/20 active:scale-95 transition-all uppercase tracking-widest">
+                        Begin Your Journey
+                    </button>
+</div>
+</div>
+</section>
+<!-- About Section -->
+<section class="px-6 py-16 bg-sage-50/50 dark:bg-white/5">
+<div class="flex flex-col items-center text-center">
+<div class="w-36 h-36 rounded-full overflow-hidden mb-8 border-4 border-white shadow-sm">
+<img alt="Elena Serene Portrait" class="w-full h-full object-cover" data-alt="Portrait of a smiling yoga instructor Elena Serene" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBrqp8kahOV4Jf-g780XvFlIHXSVpSqInOpnF7wWJqYrKXEiyTjSFDHhAi9W4Fgf7xI8vEXZBcVH_w_nc3fcj2Q2Y7HQJChurnb7oYtgLnaHvvCCMbHBzvb_hGzTgapoYop08U3GkC8pMUJl00ioYy-mluRccgfhTqTVZ8QWvmHYqiZIhz6fkpipZbjxeMdelsd09WnuY9xP_ldO8dkM14gbUWUeuYAUBVFh8Ob2gSgcN224u5ERSVBM1pPsqohd-VlSWshZgG1vVA"/>
+</div>
+<h2 class="text-sage-600 dark:text-sage-400 font-semibold tracking-widest uppercase text-xs mb-3">Meet Your Instructor</h2>
+<h3 class="text-3xl font-bold mb-6 text-stone-900 dark:text-white">Elena Serene</h3>
+<p class="text-stone-600 dark:text-slate-400 leading-relaxed mb-8 max-w-sm">
+                    With over 15 years of dedicated practice, Elena specializes in Vinyasa and Yin Yoga. Her philosophy centers on mindful movement and breath-work to cultivate a state of "Ananda" or pure bliss.
+                </p>
+<a class="text-primary hover:text-primary-dark font-bold flex items-center gap-2 transition-colors" href="#">
+                    Read her story <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</a>
+</div>
+</section>
+<!-- Practices Section -->
+<section class="px-4 py-16">
+<h2 class="text-3xl font-bold mb-10 text-center text-stone-900 dark:text-white">Practices for Every Body</h2>
+<div class="grid grid-cols-1 gap-6">
+<!-- Practice Card 1 -->
+<div class="group relative flex h-56 items-center overflow-hidden rounded-2xl bg-white dark:bg-slate-800 shadow-sm border border-sage-100 dark:border-white/10">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105" data-alt="Vinyasa flow yoga session abstract" style='background-image: linear-gradient(90deg, rgba(253, 251, 247, 0.95), transparent), url("https://lh3.googleusercontent.com/aida-public/AB6AXuAI1NcloCRhMTnZ_9F2PyIZiJYEKLNCHOAD2Nz3UKw8z3NqG5gWbligCjTQBwh5WFprjPlLPencaYdYJvZ6ml-rDC8LeIc9pIr1jHmICQLtQlIazsCkcr49863C9eKNH58hFvC5gtuvzWkdTdlY_yvT39fcXCaGHz5H-F1j809tnPMZ0hoJvaY7cPd5Yb2DH6XQCegMhVK34fuBekrl4MkytPaeeEXg5vJwhB0TWB8Tynt4ohweAsQh7kZQhLZjWYt-1JLtAkSH4vI")'></div>
+<div class="relative z-10 p-8 w-3/4">
+<h4 class="text-2xl font-bold text-sage-800 dark:text-sage-200 mb-2">Vinyasa Flow</h4>
+<p class="text-stone-600 dark:text-slate-400 text-sm leading-relaxed">A rhythmic dance of breath and movement to energize your body and soul.</p>
+</div>
+</div>
+<!-- Practice Card 2 -->
+<div class="group relative flex h-56 items-center overflow-hidden rounded-2xl bg-white dark:bg-slate-800 shadow-sm border border-sage-100 dark:border-white/10">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105" data-alt="Zen meditation scene with incense" style='background-image: linear-gradient(90deg, rgba(253, 251, 247, 0.95), transparent), url("https://lh3.googleusercontent.com/aida-public/AB6AXuCjkdOtR8mbauvmh1kP5KxcNBpD40Lx-DGjgekk3M8KecyI3UpOQXgDIAR6Y7awCvW15PQZ_UtTlsDTkvVKUzr_JvxlGrD9YLNOKtdww2Qngqq7ADJ8hUZtp2MxknP7ndF_WpySz0eeEeciJJPgHriqSjp5VAR3zyD5ZTf0u6IQ1Ew0vhkQaMLYnaD8IOob73wra1hG3ZvSkgA0c4wAeRNIVITYQaiC-L0g7-hnif9ZzBQ_icPSrUy-Xt1K-G0q_sWmbFd5qH8RyZM")'></div>
+<div class="relative z-10 p-8 w-3/4">
+<h4 class="text-2xl font-bold text-sage-800 dark:text-sage-200 mb-2">Restorative Yin</h4>
+<p class="text-stone-600 dark:text-slate-400 text-sm leading-relaxed">Slow down and heal with deep, meditative stretches and conscious breathing.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Testimonial Section -->
+<section class="bg-sage-100/30 dark:bg-sage-800/10 py-20 px-6">
+<div class="text-center mb-12">
+<span class="material-symbols-outlined text-sage-600 dark:text-sage-400 text-5xl mb-4">format_quote</span>
+<h2 class="text-3xl font-bold text-stone-900 dark:text-white">Kind Words</h2>
+</div>
+<div class="bg-white dark:bg-slate-800 p-8 rounded-2xl shadow-sm border border-sage-100 dark:border-white/5">
+<p class="italic text-lg text-stone-700 dark:text-slate-300 mb-8 leading-relaxed font-serif">
+                    "Elena's classes changed how I view my body and my breath. She has this incredibly calming presence that stays with you long after the session."
+                </p>
+<div class="flex items-center gap-4">
+<div class="size-12 rounded-full bg-sage-800 text-white flex items-center justify-center font-bold">SH</div>
+<div class="text-left">
+<p class="font-bold text-stone-900 dark:text-white">Sarah Jenkins</p>
+<p class="text-xs text-sage-600 dark:text-sage-400 uppercase tracking-widest font-medium">Student for 3 years</p>
+</div>
+</div>
+</div>
+<div class="flex justify-center gap-3 mt-8">
+<div class="w-10 h-1.5 bg-sage-800 rounded-full"></div>
+<div class="w-3 h-1.5 bg-sage-200 rounded-full"></div>
+<div class="w-3 h-1.5 bg-sage-200 rounded-full"></div>
+</div>
+</section>
+<!-- Final CTA -->
+<section class="px-6 py-24 text-center">
+<h2 class="text-3xl md:text-4xl font-bold mb-4 text-stone-900 dark:text-white">Ready to start your practice?</h2>
+<p class="text-stone-600 dark:text-slate-400 mb-10 max-w-xs mx-auto">Join our community of over 500+ mindful practitioners today.</p>
+<div class="flex flex-col gap-4">
+<button class="w-full bg-primary hover:bg-primary-dark text-white py-4.5 rounded-xl font-bold text-lg shadow-lg shadow-primary/20 active:scale-95 transition-all uppercase tracking-widest">
+                    Book a Private Session
+                </button>
+<button class="w-full bg-transparent border-2 border-primary text-primary hover:bg-primary/5 py-4 rounded-xl font-bold text-lg active:scale-95 transition-all uppercase tracking-widest">
+                    Explore Group Classes
+                </button>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="mt-auto border-t border-sage-100 dark:border-white/10 bg-white dark:bg-background-dark">
+<div class="flex items-center justify-between px-6 py-10">
+<div>
+<h3 class="font-bold text-sage-800 dark:text-sage-200 text-xl font-display mb-1">OmYogVidya</h3>
+<p class="text-xs text-stone-400 uppercase tracking-widest">Mindfulness. Movement. Mastery.</p>
+</div>
+<div class="flex gap-5">
+<span class="material-symbols-outlined text-stone-400 hover:text-primary cursor-pointer transition-colors">share</span>
+<span class="material-symbols-outlined text-stone-400 hover:text-primary cursor-pointer transition-colors">mail</span>
+</div>
+</div>
+<div class="text-center pb-8 px-6">
+<p class="text-[10px] text-stone-400 uppercase tracking-widest">© 2023 OmYogVidya Studio. All rights reserved.</p>
+</div>
+<!-- Bottom Tab Bar -->
+<div class="flex gap-2 border-t border-sage-100 dark:border-white/10 bg-cream-50/90 dark:bg-background-dark/90 px-4 pb-8 pt-3 sticky bottom-0 backdrop-blur-md">
+<a class="flex flex-1 flex-col items-center justify-center gap-1 text-sage-800 dark:text-sage-200" href="#">
+<span class="material-symbols-outlined text-[26px]" style="font-variation-settings: 'FILL' 1">home</span>
+<p class="text-[10px] font-bold uppercase tracking-tighter">Home</p>
+</a>
+<a class="flex flex-1 flex-col items-center justify-center gap-1 text-stone-400 dark:text-slate-500" href="#">
+<span class="material-symbols-outlined text-[26px]">self_improvement</span>
+<p class="text-[10px] font-bold uppercase tracking-tighter">Practices</p>
+</a>
+<a class="flex flex-1 flex-col items-center justify-center gap-1 text-stone-400 dark:text-slate-500" href="#">
+<span class="material-symbols-outlined text-[26px]">history_edu</span>
+<p class="text-[10px] font-bold uppercase tracking-tighter">About</p>
+</a>
+<a class="flex flex-1 flex-col items-center justify-center gap-1 text-stone-400 dark:text-slate-500" href="#">
+<span class="material-symbols-outlined text-[26px]">calendar_month</span>
+<p class="text-[10px] font-bold uppercase tracking-tighter">Book</p>
+</a>
+</div>
+</footer>
+</div>
+</body></html>

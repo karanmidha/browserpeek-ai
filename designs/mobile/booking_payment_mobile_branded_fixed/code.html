@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>OmYogVidya Booking</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;family=Playfair+Display:ital,wght@0,400;0,600;1,400&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#2d4a22", // Muted forest green
+                        "brand-green": "#2d4a22", // Muted forest green
+                        "brand-brown": "#8c6239", // Warm earthy brown
+                        "stone-bg": "#fafaf9",
+                    },
+                    fontFamily: {
+                        "sans": ["Inter", "sans-serif"],
+                        "display": ["Playfair Display", "serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "2xl": "1rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Inter', sans-serif;
+            min-height: max(884px, 100dvh);
+        }
+        h1, h2, h3 {
+            font-family: 'Playfair Display', serif;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        /* Hide scrollbar but allow scrolling */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        .date-radio:checked + label {
+            background-color: #2d4a22; /* brand-green */
+            color: white;
+            border-color: #2d4a22;
+        }
+        .slot-pill:checked + label {
+            background-color: #f0f4ee; /* very light green tint */
+            color: #2d4a22;
+            border-color: #2d4a22;
+            box-shadow: 0 0 0 1px #2d4a22;
+        }
+    </style>
+</head>
+<body class="bg-stone-bg text-stone-800 antialiased">
+<div class="relative flex h-auto min-h-screen w-full max-w-md mx-auto flex-col bg-stone-bg overflow-x-hidden">
+<!-- Top Navigation -->
+<header class="flex items-center p-4 justify-between sticky top-0 bg-stone-bg/80 backdrop-blur-md z-10 border-b border-stone-200">
+<div class="flex size-10 items-center justify-center rounded-full hover:bg-stone-200 transition-colors cursor-pointer text-brand-green">
+<span class="material-symbols-outlined">arrow_back</span>
+</div>
+<h1 class="text-xl font-semibold leading-tight tracking-tight flex-1 text-center pr-10 text-brand-green">Book Your Flow</h1>
+</header>
+<main class="flex-1 pb-32 px-4">
+<!-- Hero Header -->
+<section class="pt-6 pb-4 text-center">
+<p class="text-stone-600 text-sm italic">"Yoga is the journey of the self, through the self, to the self."</p>
+</section>
+<!-- Selection Section -->
+<div class="bg-white rounded-2xl shadow-sm border border-stone-100 p-5 mb-6">
+<h2 class="text-xl font-medium mb-4 flex items-center gap-2 text-stone-800">
+<span class="material-symbols-outlined text-brand-brown">calendar_month</span>
+                    Select Date &amp; Time
+                </h2>
+<!-- Advance Booking Notice -->
+<div class="bg-stone-50 border rounded-lg p-3 mb-6 text-xs flex items-start gap-2 text-brand-brown border-brand-brown/20">
+<span class="material-symbols-outlined text-sm mt-0.5">info</span>
+<p>Note: Bookings must be made at least 24 hours in advance.</p>
+</div>
+<!-- Date Picker -->
+<div class="mb-6">
+<label class="block text-[10px] font-bold text-stone-400 uppercase tracking-widest mb-3">October 2023</label>
+<div class="grid grid-cols-7 gap-1.5">
+<!-- Dates based on desktop reference -->
+<div class="relative">
+<input checked="" class="hidden date-radio" id="date-24" name="session-date" type="radio" value="Oct 24, 2023"/>
+<label class="flex flex-col items-center justify-center py-2 border border-stone-200 rounded-lg cursor-pointer hover:border-brand-green transition-all" for="date-24">
+<span class="text-[9px] uppercase font-bold opacity-70">Tue</span>
+<span class="text-base font-semibold">24</span>
+</label>
+</div>
+<div class="relative">
+<input class="hidden date-radio" id="date-25" name="session-date" type="radio" value="Oct 25, 2023"/>
+<label class="flex flex-col items-center justify-center py-2 border border-stone-200 rounded-lg cursor-pointer hover:border-brand-green transition-all" for="date-25">
+<span class="text-[9px] uppercase font-bold opacity-70">Wed</span>
+<span class="text-base font-semibold">25</span>
+</label>
+</div>
+<div class="relative">
+<input class="hidden date-radio" id="date-26" name="session-date" type="radio" value="Oct 26, 2023"/>
+<label class="flex flex-col items-center justify-center py-2 border border-stone-200 rounded-lg cursor-pointer hover:border-brand-green transition-all" for="date-26">
+<span class="text-[9px] uppercase font-bold opacity-70">Thu</span>
+<span class="text-base font-semibold">26</span>
+</label>
+</div>
+<div class="relative opacity-30">
+<div class="flex flex-col items-center justify-center py-2 border border-stone-100 rounded-lg bg-stone-50">
+<span class="text-[9px] uppercase font-bold opacity-70">Fri</span>
+<span class="text-base font-semibold">27</span>
+</div>
+</div>
+<div class="relative opacity-30">
+<div class="flex flex-col items-center justify-center py-2 border border-stone-100 rounded-lg bg-stone-50">
+<span class="text-[9px] uppercase font-bold opacity-70">Sat</span>
+<span class="text-base font-semibold">28</span>
+</div>
+</div>
+<div class="relative">
+<input class="hidden date-radio" id="date-29" name="session-date" type="radio" value="Oct 29, 2023"/>
+<label class="flex flex-col items-center justify-center py-2 border border-stone-200 rounded-lg cursor-pointer hover:border-brand-green transition-all" for="date-29">
+<span class="text-[9px] uppercase font-bold opacity-70">Sun</span>
+<span class="text-base font-semibold">29</span>
+</label>
+</div>
+<div class="relative">
+<input class="hidden date-radio" id="date-30" name="session-date" type="radio" value="Oct 30, 2023"/>
+<label class="flex flex-col items-center justify-center py-2 border border-stone-200 rounded-lg cursor-pointer hover:border-brand-green transition-all" for="date-30">
+<span class="text-[9px] uppercase font-bold opacity-70">Mon</span>
+<span class="text-base font-semibold">30</span>
+</label>
+</div>
+</div>
+</div>
+<!-- Time Slot Section -->
+<div class="space-y-6">
+<div>
+<label class="block text-[10px] font-bold text-stone-400 uppercase tracking-widest mb-3">Morning Sessions</label>
+<div class="grid grid-cols-2 gap-2">
+<div class="relative">
+<input checked="" class="hidden slot-pill" id="slot-0700am" name="session-slot" type="radio" value="07:00 AM"/>
+<label class="flex items-center justify-center px-4 py-3 border border-stone-200 rounded-xl cursor-pointer hover:border-brand-green transition-all text-sm font-medium text-stone-600 bg-white" for="slot-0700am">
+                                    07:00 AM
+                                </label>
+</div>
+<div class="relative">
+<input class="hidden slot-pill" id="slot-0930am" name="session-slot" type="radio" value="09:30 AM"/>
+<label class="flex items-center justify-center px-4 py-3 border border-stone-200 rounded-xl cursor-pointer hover:border-brand-green transition-all text-sm font-medium text-stone-600 bg-white" for="slot-0930am">
+                                    09:30 AM
+                                </label>
+</div>
+</div>
+</div>
+<div>
+<label class="block text-[10px] font-bold text-stone-400 uppercase tracking-widest mb-3">Evening Sessions</label>
+<div class="grid grid-cols-3 gap-2">
+<div class="relative">
+<input class="hidden slot-pill" id="slot-0530pm" name="session-slot" type="radio" value="05:30 PM"/>
+<label class="flex items-center justify-center px-2 py-3 border border-stone-200 rounded-xl cursor-pointer hover:border-brand-green transition-all text-xs font-medium text-stone-600 bg-white" for="slot-0530pm">
+                                    05:30 PM
+                                </label>
+</div>
+<div class="relative">
+<input class="hidden slot-pill" id="slot-0700pm" name="session-slot" type="radio" value="07:00 PM"/>
+<label class="flex items-center justify-center px-2 py-3 border border-stone-200 rounded-xl cursor-pointer hover:border-brand-green transition-all text-xs font-medium text-stone-600 bg-white" for="slot-0700pm">
+                                    07:00 PM
+                                </label>
+</div>
+<div class="relative">
+<input class="hidden slot-pill" id="slot-0830pm" name="session-slot" type="radio" value="08:30 PM"/>
+<label class="flex items-center justify-center px-2 py-3 border border-stone-200 rounded-xl cursor-pointer hover:border-brand-green transition-all text-xs font-medium text-stone-600 bg-white" for="slot-0830pm">
+                                    08:30 PM
+                                </label>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Booking Summary Card -->
+<section class="bg-stone-100/50 rounded-2xl border border-stone-200 p-5">
+<h2 class="text-xl font-medium mb-4">Booking Summary</h2>
+<div class="space-y-3">
+<div class="flex justify-between pb-2 border-b border-stone-200">
+<span class="text-stone-500 text-sm">Session</span>
+<span class="font-medium text-sm">Morning Vinyasa Flow</span>
+</div>
+<div class="flex justify-between pb-2 border-b border-stone-200">
+<span class="text-stone-500 text-sm">Date</span>
+<span class="font-medium text-sm">Oct 24, 2023</span>
+</div>
+<div class="flex justify-between pb-2 border-b border-stone-200">
+<span class="text-stone-500 text-sm">Time</span>
+<span class="font-medium text-sm">07:00 AM</span>
+</div>
+<div class="flex justify-between pb-2 border-b border-stone-200">
+<span class="text-stone-500 text-sm">Base Price</span>
+<span class="font-medium text-sm">₹500</span>
+</div>
+<div class="flex justify-between pt-2">
+<span class="text-base font-semibold">Total Amount</span>
+<span class="text-xl font-bold text-brand-green">₹500</span>
+</div>
+</div>
+</section>
+<!-- Footer Links -->
+<footer class="mt-8 text-center text-stone-500 text-xs pb-10">
+<p>© 2023 OmYogVidya. All rights reserved.</p>
+<div class="mt-2 flex justify-center gap-4">
+<a class="underline hover:text-brand-green" href="#">Cancellation Policy</a>
+<a class="underline hover:text-brand-green" href="#">Terms of Service</a>
+</div>
+</footer>
+</main>
+<!-- Fixed Bottom Action Button -->
+<div class="fixed bottom-0 left-0 right-0 max-w-md mx-auto p-4 bg-stone-bg/95 border-t border-stone-200 backdrop-blur-sm z-20">
+<button class="w-full bg-brand-green hover:bg-[#1e3217] text-white font-medium py-4 rounded-xl shadow-lg flex items-center justify-center gap-3 transition-all active:scale-[0.98]">
+<span class="material-symbols-outlined text-xl">payments</span>
+<span class="text-lg">Pay with RazorPay</span>
+</button>
+<p class="text-[10px] text-center mt-3 text-stone-400 uppercase tracking-widest font-medium">Secured by RazorPay 256-bit encryption</p>
+</div>
+</div>
+</body></html>
