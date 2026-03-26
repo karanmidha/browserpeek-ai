@@ -59,7 +59,7 @@ const WeeklyDateSelector: React.FC<WeeklyDateSelectorProps> = ({
       <h3 className="text-lg font-serif text-secondary-900 mb-4">Select Date</h3>
 
       {/* 7-Day Calendar Header */}
-      <div className="grid grid-cols-7 gap-2 mb-4">
+      <div className="grid grid-cols-7 gap-3 mb-4">
         {availableDates.map((date, index) => {
           const { dayName, dayNumber } = formatDateDisplay(date);
           const selected = isDateSelected(date);
@@ -71,12 +71,12 @@ const WeeklyDateSelector: React.FC<WeeklyDateSelectorProps> = ({
               onClick={() => onDateSelect(date)}
               disabled={disabled}
               className={`
-                flex flex-col items-center justify-center p-3 rounded-lg transition-all duration-200
+                flex flex-col items-center justify-center p-4 rounded-lg transition-all duration-200 min-h-[4rem]
                 ${selected
-                  ? 'bg-secondary-600 text-white shadow-md'
+                  ? 'bg-sage-600 text-white shadow-md'
                   : tomorrow
-                    ? 'bg-white text-secondary-900 border-2 border-secondary-300 hover:bg-secondary-50'
-                    : 'text-secondary-700 hover:bg-secondary-50 hover:border hover:border-secondary-300 bg-white border border-gray-200'
+                    ? 'bg-white text-stone-900 border-2 border-sage-300 hover:bg-sage-50'
+                    : 'text-stone-700 hover:bg-sage-50 hover:border hover:border-sage-300 bg-white border border-sage-100'
                 }
                 ${!disabled ? 'hover:scale-105' : 'opacity-50'}
               `}
@@ -88,8 +88,8 @@ const WeeklyDateSelector: React.FC<WeeklyDateSelectorProps> = ({
                 {dayNumber}
               </div>
               {tomorrow && (
-                <div className="text-xs mt-1">
-                  <span className={`px-1 rounded text-xs ${selected ? 'text-white' : 'text-secondary-600'}`}>
+                <div className="text-xs mt-1 w-full text-center">
+                  <span className={`px-2 py-0.5 rounded text-xs whitespace-nowrap ${selected ? 'text-white' : 'text-sage-700'}`}>
                     Tomorrow
                   </span>
                 </div>

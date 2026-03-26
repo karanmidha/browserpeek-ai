@@ -133,16 +133,6 @@ const HomePage: React.FC = () => {
           </div>
         </div>
       </section>
-                <div className="relative">
-                  <div className="absolute -inset-4 bg-gradient-to-br from-accent-200 to-secondary-200 rounded-2xl transform rotate-3"></div>
-                  {/* Hero image - conflict markers removed */}
-                  <img
-                    src="/hero.png"
-                    alt="Priya Sharma - Certified Yoga Instructor"
-                    className="relative w-full h-96 lg:h-[500px] object-cover rounded-2xl shadow-2xl"
-                    loading="lazy"
-                    decoding="async"
-                  />
 
       {/* Our Shared Journey - Testimonials */}
       <section className="py-24 bg-cream-100" id="testimonials">
@@ -166,38 +156,37 @@ const HomePage: React.FC = () => {
                     <span className="text-sage-800 text-xl font-bold">
                       {testimonial.name.split(' ').map(n => n[0]).join('')}
                     </span>
-                    </div>
-                    <div>
-                      <h3 className="text-stone-900 font-semibold text-lg">
-                        {testimonial.name}
-                      </h3>
-                      <p className="text-stone-600 text-sm">
-                        {testimonial.studentType}
-                      </p>
-                    </div>
                   </div>
-
-                  {/* Rating */}
-                  <div className="flex items-center mb-4">
-                    <div className="text-wood-500 text-lg">
-                      {'★'.repeat(testimonial.rating)}{'☆'.repeat(5 - testimonial.rating)}
-                    </div>
-                  </div>
-
-                  {/* Quote */}
-                  <p className="text-stone-600 mb-6 italic leading-relaxed">
-                    "{testimonial.quote}"
-                  </p>
-
-                  {/* Practice Style */}
-                  <div className="text-stone-500 text-sm mt-auto pt-4 border-t border-sage-100">
-                    <span className="text-wood-500 font-medium">
-                      Yoga Practice
-                    </span>
+                  <div>
+                    <h3 className="text-stone-900 font-semibold text-lg">
+                      {testimonial.name}
+                    </h3>
+                    <p className="text-stone-600 text-sm">
+                      {testimonial.studentType}
+                    </p>
                   </div>
                 </div>
-              ))}
-            </div>
+
+                {/* Rating */}
+                <div className="flex items-center mb-4">
+                  <div className="text-wood-500 text-lg">
+                    {'★'.repeat(testimonial.rating)}{'☆'.repeat(5 - testimonial.rating)}
+                  </div>
+                </div>
+
+                {/* Quote */}
+                <p className="text-stone-600 mb-6 italic leading-relaxed">
+                  "{testimonial.quote}"
+                </p>
+
+                {/* Practice Style */}
+                <div className="text-stone-500 text-sm mt-auto pt-4 border-t border-sage-100">
+                  <span className="text-wood-500 font-medium">
+                    Yoga Practice
+                  </span>
+                </div>
+              </div>
+            ))}
           </div>
 
           {/* Call to Action */}

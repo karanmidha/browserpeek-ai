@@ -263,7 +263,7 @@ const BookingPage: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-cream-50 text-stone-800">
-      <main className="max-w-4xl mx-auto px-4 py-8 md:py-16">
+      <main className="max-w-5xl mx-auto px-4 py-8 md:py-16">
         {/* Header Section */}
         <header className="text-center mb-12">
           <h1 className="text-4xl md:text-5xl font-semibold mb-4 text-stone-900">Book Your Flow</h1>
@@ -272,7 +272,7 @@ const BookingPage: React.FC = () => {
 
         {/* Error Alert */}
         {bookingError && (
-          <div className="max-w-4xl mx-auto mb-6">
+          <div className="max-w-5xl mx-auto mb-6">
             <div className="bg-red-50 border border-red-200 rounded-lg p-4">
               <div className="flex items-start">
                 <svg className="w-5 h-5 text-red-500 mr-3 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
@@ -300,7 +300,7 @@ const BookingPage: React.FC = () => {
           <div className="grid md:grid-cols-2">
 
             {/* Selection Area */}
-            <div className="p-6 md:p-8 border-b md:border-b-0 md:border-r border-sage-100">
+            <div className="p-8 md:p-10 border-b md:border-b-0 md:border-r border-sage-100">
               <h2 className="text-xl font-medium mb-6 flex items-center gap-2 text-stone-900">
                 <svg className="w-5 h-5 text-wood-500" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
                   <path d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5" strokeLinecap="round" strokeLinejoin="round"></path>
@@ -309,7 +309,7 @@ const BookingPage: React.FC = () => {
               </h2>
 
               {/* Advance Booking Notice */}
-              <div className="bg-cream-100 border border-wood-500/20 rounded-lg p-4 mb-8 text-sm text-wood-700 flex items-start gap-3">
+              <div className="bg-cream-100 border border-wood-500/20 rounded-lg p-5 mb-8 text-sm text-wood-700 flex items-start gap-4">
                 <svg className="w-5 h-5 text-wood-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
                   <path d="M11.25 11.25l.041-.02a.75.75 0 011.063.852l-.708 2.836a.75.75 0 001.063.853l.041-.021M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9-3.75h.008v.008H12V8.25z" strokeLinecap="round" strokeLinejoin="round"></path>
                 </svg>
@@ -340,7 +340,7 @@ const BookingPage: React.FC = () => {
             </div>
 
             {/* Summary Area */}
-            <div className="p-6 md:p-8">
+            <div className="p-8 md:p-10">
               <div className="sticky top-4">
                 <EnhancedBookingSummary
                   selectedDate={selectedDate}

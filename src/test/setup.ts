@@ -8,6 +8,9 @@ global.IntersectionObserver = class IntersectionObserver {
   }
 
   callback: IntersectionObserverCallback;
+  root: Element | null = null;
+  rootMargin: string = '0px';
+  thresholds: ReadonlyArray<number> = [0];
 
   observe(element: Element) {
     // Immediately trigger the callback as if the element is intersecting
@@ -16,6 +19,9 @@ global.IntersectionObserver = class IntersectionObserver {
 
   unobserve() {}
   disconnect() {}
+  takeRecords(): IntersectionObserverEntry[] {
+    return [];
+  }
 };
 
 // Mock environment variables for tests

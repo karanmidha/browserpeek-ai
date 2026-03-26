@@ -90,27 +90,27 @@ const ContactPage: React.FC = () => {
           <section className="bg-white rounded-2xl shadow-sm border border-sage-100 p-8 md:p-10">
             <h2 className="text-3xl font-normal text-stone-900 mb-8">Send Inquiry</h2>
 
-              {/* Success Message */}
-              {submitSuccess && (
-                <div className="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded mb-6">
-                  <p className="font-medium">Thank you for your message!</p>
-                  <p className="text-sm">We'll get back to you within 24 hours.</p>
-                </div>
-              )}
+            {/* Success Message */}
+            {submitSuccess && (
+              <div className="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded mb-6">
+                <p className="font-medium">Thank you for your message!</p>
+                <p className="text-sm">We'll get back to you within 24 hours.</p>
+              </div>
+            )}
 
-              {/* Error Messages */}
-              {formErrors.length > 0 && (
-                <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-6">
-                  <p className="font-medium">Please fix the following errors:</p>
-                  <ul className="list-disc list-inside text-sm">
-                    {formErrors.map((error, index) => (
-                      <li key={index}>{error}</li>
-                    ))}
-                  </ul>
-                </div>
-              )}
+            {/* Error Messages */}
+            {formErrors.length > 0 && (
+              <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-6">
+                <p className="font-medium">Please fix the following errors:</p>
+                <ul className="list-disc list-inside text-sm">
+                  {formErrors.map((error, index) => (
+                    <li key={index}>{error}</li>
+                  ))}
+                </ul>
+              </div>
+            )}
 
-              <form className="space-y-8" onSubmit={handleSubmit}>
+            <form className="space-y-8" onSubmit={handleSubmit}>
                 {/* Full Name */}
                 <div className="grid grid-cols-1 gap-1">
                   <label className="text-xs font-semibold text-stone-500 uppercase tracking-widest" htmlFor="name">
@@ -223,14 +223,14 @@ const ContactPage: React.FC = () => {
                   <p>We respect your privacy and will never share your information.</p>
                 </div>
               </form>
-            </div>
+            </section>
 
-            {/* Contact Details Sidebar */}
-            <aside className="space-y-12 lg:pl-8">
-              {/* Direct Contact Info */}
-              <section>
-                <h2 className="text-3xl font-normal text-stone-900 mb-8">Contact Details</h2>
-                <div className="space-y-8">
+          {/* Contact Details Sidebar */}
+          <aside className="space-y-12 lg:pl-8">
+            {/* Direct Contact Info */}
+            <section>
+              <h2 className="text-3xl font-normal text-stone-900 mb-8">Contact Details</h2>
+              <div className="space-y-8">
                   <div className="flex items-start">
                     <div className="flex-shrink-0 mt-1">
                       <svg className="h-6 w-6 text-sage-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -270,11 +270,11 @@ const ContactPage: React.FC = () => {
                       </p>
                     </div>
                   </div>
-                </div>
-              </section>
+              </div>
+            </section>
 
-              {/* Session Hours */}
-              <section className="bg-cream-100 rounded-2xl p-8">
+            {/* Session Hours */}
+            <section className="bg-cream-100 rounded-2xl p-8">
                 <h3 className="text-xl font-medium text-stone-900 mb-6">Session Hours</h3>
                 <div className="space-y-3">
                   <div className="flex justify-between items-center">
@@ -290,18 +290,17 @@ const ContactPage: React.FC = () => {
                     <span className="text-stone-900 font-medium">8:00 AM - 4:00 PM</span>
                   </div>
                 </div>
-              </section>
+            </section>
 
-              {/* Response Time */}
-              <section>
+            {/* Response Time */}
+            <section>
                 <h3 className="text-xl font-medium text-stone-900 mb-4">Response Time</h3>
                 <p className="text-stone-600">
                   We typically respond to all inquiries within 24 hours during business days.
                   For urgent booking questions, please call us directly.
                 </p>
-              </section>
-            </aside>
-          </div>
+            </section>
+          </aside>
         </div>
       </main>
     </div>
