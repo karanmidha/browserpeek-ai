@@ -262,12 +262,12 @@ const BookingPage: React.FC = () => {
   }
 
   return (
-    <div className="min-h-screen py-12 bg-primary-100">
+    <div className="min-h-screen py-8 bg-primary-100">
       <div className="container mx-auto px-4">
         <h1 className="text-4xl font-serif text-secondary-900 text-center mb-4">
           Book Your Flow
         </h1>
-        <p className="text-lg text-secondary-600 text-center italic mb-12">
+        <p className="text-lg text-secondary-600 text-center italic mb-8">
           "Yoga is the journey of the self, through the self, to the self."
         </p>
 
@@ -296,12 +296,12 @@ const BookingPage: React.FC = () => {
           </div>
         )}
 
-        <div className="max-w-7xl mx-auto">
+        <div className="max-w-6xl mx-auto">
           {/* 2-Column Layout: Date & Time Selection | Booking Summary */}
-          <div className="grid lg:grid-cols-2 gap-8">
+          <div className="grid lg:grid-cols-2 gap-6">
 
             {/* Left Panel: Date & Time Selection */}
-            <div className="space-y-6">
+            <div className="space-y-4">
               {/* Date Selection */}
               <div className="card h-fit">
                 <WeeklyDateSelector
@@ -338,22 +338,6 @@ const BookingPage: React.FC = () => {
         </div>
 
 
-        {/* Footer with Policy Links */}
-        <div className="max-w-4xl mx-auto mt-8">
-          <div className="border-t border-secondary-200 pt-6">
-            <div className="flex flex-col md:flex-row justify-between items-center text-sm text-secondary-600">
-              <div className="flex space-x-6 mb-4 md:mb-0">
-                <a href="/cancellation-policy" className="hover:text-secondary-800 transition-colors">
-                  Cancellation Policy
-                </a>
-                <a href="/terms-of-service" className="hover:text-secondary-800 transition-colors">
-                  Terms of Service
-                </a>
-              </div>
-              <p>© 2023 OmYogVidya Studio. All rights reserved.</p>
-            </div>
-          </div>
-        </div>
       </div>
     </div>
   );
