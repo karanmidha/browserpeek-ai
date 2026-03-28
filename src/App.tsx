@@ -12,6 +12,7 @@ import { AdminTestimonials } from './pages/admin/AdminTestimonials';
 import { AdminInquiries } from './pages/admin/AdminInquiries';
 import { AdminLayout } from './components/admin/AdminLayout';
 import { ProtectedRoute } from './components/admin/ProtectedRoute';
+import { InstructorDashboard } from './pages/InstructorDashboard';
 
 function App() {
   return (
@@ -25,6 +26,13 @@ function App() {
 
         {/* Admin authentication */}
         <Route path="/admin/auth" element={<AdminAuthPage />} />
+
+        {/* Instructor Dashboard - Protected Route */}
+        <Route path="/instructor" element={
+          <ProtectedRoute>
+            <InstructorDashboard />
+          </ProtectedRoute>
+        } />
 
         {/* Protected admin routes */}
         <Route
