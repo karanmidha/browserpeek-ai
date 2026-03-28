@@ -7,6 +7,12 @@ module.exports = {
   theme: {
     extend: {
       colors: {
+        // Mobile design system colors
+        primary: '#2d4a22', // Muted forest green from mobile design
+        'brand-green': '#2d4a22',
+        'brand-brown': '#8c6239', // Warm earthy brown
+        'stone-bg': '#fafaf9',
+
         // New design system colors from designs/ folder
         sage: {
           50: '#f4f7f4',
@@ -18,15 +24,6 @@ module.exports = {
         cream: {
           50: '#fdfbf7',
           100: '#f9f3e9',
-        },
-        wood: {
-          500: '#a67c52',
-          700: '#7a5a3a',
-        },
-        // Keep legacy colors for gradual migration
-        primary: {
-          50: '#fdfcfa',
-          100: '#faf8f3',
           200: '#f5f0e8', // Main cream color
           300: '#ede3d3',
           400: '#e0d0b8',
@@ -35,6 +32,10 @@ module.exports = {
           700: '#b8956b',
           800: '#9e7f5a',
           900: '#7a6244',
+        },
+        wood: {
+          500: '#a67c52',
+          700: '#7a5a3a',
         },
         secondary: {
           50: '#f0f4f0',
