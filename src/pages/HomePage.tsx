@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 
 const HomePage: React.FC = () => {
   const [statsAnimated, setStatsAnimated] = useState(false);
@@ -8,6 +8,23 @@ const HomePage: React.FC = () => {
   const statsRef = useRef<HTMLDivElement>(null);
 
   const finalStats = { students: 500, experience: 15, sessions: 1000 };
+
+  const animateStats = useCallback(() => {
+    const duration = 1500; // 1.5 seconds
+    const steps = 60;
+    const stepDuration = duration / steps;
+
+    for (let step = 0; step <= steps; step++) {
+      setTimeout(() => {
+        const progress = step / steps;
+        setStats({
+          students: Math.round(finalStats.students * progress),
+          experience: Math.round(finalStats.experience * progress),
+          sessions: Math.round(finalStats.sessions * progress),
+        });
+      }, step * stepDuration);
+    }
+  }, [finalStats.students, finalStats.experience, finalStats.sessions]);
 
   // Screen size detection for carousel behavior
   useEffect(() => {
@@ -37,24 +54,7 @@ const HomePage: React.FC = () => {
     }
 
     return () => observer.disconnect();
-  }, [statsAnimated]);
-
-  const animateStats = () => {
-    const duration = 1500; // 1.5 seconds
-    const steps = 60;
-    const stepDuration = duration / steps;
-
-    for (let step = 0; step <= steps; step++) {
-      setTimeout(() => {
-        const progress = step / steps;
-        setStats({
-          students: Math.round(finalStats.students * progress),
-          experience: Math.round(finalStats.experience * progress),
-          sessions: Math.round(finalStats.sessions * progress),
-        });
-      }, step * stepDuration);
-    }
-  };
+  }, [statsAnimated, animateStats]);
 
   const nextTestimonial = () => {
     setCurrentTestimonial((prev) => (prev + 1) % testimonials.length);
