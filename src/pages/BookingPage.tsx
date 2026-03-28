@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import WeeklyDateSelector from '../components/booking/WeeklyDateSelector';
-import CleanTimeSlotSelector from '../components/booking/CleanTimeSlotSelector';
-import EnhancedBookingSummary from '../components/booking/EnhancedBookingSummary';
+import MobileCompactDateSelector from '../components/booking/MobileCompactDateSelector';
+import MobilePillTimeSlotSelector from '../components/booking/MobilePillTimeSlotSelector';
+import MobileBookingSummary from '../components/booking/MobileBookingSummary';
+import MobilePaymentButton from '../components/booking/MobilePaymentButton';
 import type { Database } from '../types/database';
 import { openRazorPayCheckout, createRazorPayOrder, verifyPaymentSignature } from '../utils/razorpay';
 
@@ -10,6 +11,7 @@ type TimeSlot = Database['public']['Tables']['time_slots']['Row'] & {
   booked_count: number;
   is_within_cutoff: boolean;
   is_full: boolean;
+  available_spots: number;
 };
 
 interface BookingData {
@@ -262,98 +264,96 @@ const BookingPage: React.FC = () => {
   }
 
   return (
-    <div className="min-h-screen bg-cream-50 text-stone-800">
-      <main className="max-w-5xl mx-auto px-4 py-8 md:py-16">
-        {/* Header Section */}
-        <header className="text-center mb-12">
-          <h1 className="text-4xl md:text-5xl font-semibold mb-4 text-stone-900">Book Your Flow</h1>
-          <p className="text-sage-600 max-w-md mx-auto italic font-serif text-lg">"Yoga is the journey of the self, through the self, to the self."</p>
-        </header>
+    <div className="relative flex h-auto min-h-screen w-full max-w-md mx-auto flex-col bg-stone-50 overflow-x-hidden">
+      {/* Top Navigation */}
+      <header className="flex items-center p-4 justify-between sticky top-0 bg-stone-50/80 backdrop-blur-md z-10 border-b border-stone-200">
+        <div className="flex size-10 items-center justify-center rounded-full hover:bg-stone-200 transition-colors cursor-pointer text-primary">
+          <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
+          </svg>
+        </div>
+        <h1 className="text-xl font-semibold leading-tight tracking-tight flex-1 text-center pr-10 text-primary font-display">Book Your Flow</h1>
+      </header>
+
+      <main className="flex-1 pb-32 px-4">
+        {/* Hero Header */}
+        <section className="pt-6 pb-4 text-center">
+          <p className="text-stone-600 text-sm italic">"Yoga is the journey of the self, through the self, to the self."</p>
+        </section>
 
         {/* Error Alert */}
         {bookingError && (
-          <div className="max-w-5xl mx-auto mb-6">
-            <div className="bg-red-50 border border-red-200 rounded-lg p-4">
-              <div className="flex items-start">
-                <svg className="w-5 h-5 text-red-500 mr-3 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
-                  <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clipRule="evenodd" />
-                </svg>
-                <div>
-                  <h3 className="text-sm font-medium text-red-800">Booking Error</h3>
-                  <p className="text-sm text-red-700 mt-1">{bookingError}</p>
-                </div>
-                <button
-                  onClick={() => setBookingError(null)}
-                  className="ml-auto pl-3"
-                >
-                  <svg className="w-5 h-5 text-red-500" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clipRule="evenodd" />
-                  </svg>
-                </button>
+          <div className="bg-red-50 border border-red-200 rounded-lg p-4 mb-6">
+            <div className="flex items-start">
+              <svg className="w-5 h-5 text-red-500 mr-3 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clipRule="evenodd" />
+              </svg>
+              <div>
+                <h3 className="text-sm font-medium text-red-800">Booking Error</h3>
+                <p className="text-sm text-red-700 mt-1">{bookingError}</p>
               </div>
+              <button
+                onClick={() => setBookingError(null)}
+                className="ml-auto pl-3"
+              >
+                <svg className="w-5 h-5 text-red-500" fill="currentColor" viewBox="0 0 20 20">
+                  <path fillRule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clipRule="evenodd" />
+                </svg>
+              </button>
             </div>
           </div>
         )}
 
-        {/* Booking Card */}
-        <section className="bg-white rounded-2xl shadow-sm border border-sage-100 overflow-hidden">
-          <div className="grid md:grid-cols-2">
+        {/* Selection Section */}
+        <div className="bg-white rounded-2xl shadow-sm border border-stone-100 p-5 mb-6">
+          <h2 className="text-xl font-medium mb-4 flex items-center gap-2 text-stone-800">
+            <svg className="w-5 h-5 text-amber-600" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
+              <path d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+            Select Date & Time
+          </h2>
 
-            {/* Selection Area */}
-            <div className="p-8 md:p-10 border-b md:border-b-0 md:border-r border-sage-100">
-              <h2 className="text-xl font-medium mb-6 flex items-center gap-2 text-stone-900">
-                <svg className="w-5 h-5 text-wood-500" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
-                  <path d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5" strokeLinecap="round" strokeLinejoin="round"></path>
-                </svg>
-                Select Date & Time
-              </h2>
-
-              {/* Advance Booking Notice */}
-              <div className="bg-cream-100 border border-wood-500/20 rounded-lg p-5 mb-8 text-sm text-wood-700 flex items-start gap-4">
-                <svg className="w-5 h-5 text-wood-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
-                  <path d="M11.25 11.25l.041-.02a.75.75 0 011.063.852l-.708 2.836a.75.75 0 001.063.853l.041-.021M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9-3.75h.008v.008H12V8.25z" strokeLinecap="round" strokeLinejoin="round"></path>
-                </svg>
-                <div>
-                  <p className="font-medium text-wood-800 mb-1">Advance booking required</p>
-                  <p className="text-wood-600">Sessions must be booked at least 24 hours in advance to ensure availability and proper preparation.</p>
-                </div>
-              </div>
-
-              {/* Date Selection */}
-              <div className="mb-8">
-                <WeeklyDateSelector
-                  selectedDate={selectedDate}
-                  onDateSelect={handleDateSelect}
-                  disabled={isProcessing}
-                />
-              </div>
-
-              {/* Time Slot Selection */}
-              <div>
-                <CleanTimeSlotSelector
-                  selectedDate={selectedDate}
-                  selectedSlot={selectedSlot}
-                  onSlotSelect={handleSlotSelect}
-                  disabled={isProcessing}
-                />
-              </div>
-            </div>
-
-            {/* Summary Area */}
-            <div className="p-8 md:p-10">
-              <div className="sticky top-4">
-                <EnhancedBookingSummary
-                  selectedDate={selectedDate}
-                  selectedSlot={selectedSlot}
-                  onBookingSubmit={handleBookingSubmit}
-                  loading={isProcessing}
-                  disabled={isProcessing}
-                />
-              </div>
-            </div>
+          {/* Mobile-Optimized Date Selection */}
+          <div className="mb-6">
+            <MobileCompactDateSelector
+              selectedDate={selectedDate}
+              onDateSelect={handleDateSelect}
+              disabled={isProcessing}
+            />
           </div>
+
+          {/* Mobile-Optimized Time Slot Selection */}
+          <div>
+            <MobilePillTimeSlotSelector
+              selectedDate={selectedDate}
+              selectedSlot={selectedSlot}
+              onSlotSelect={handleSlotSelect}
+              disabled={isProcessing}
+            />
+          </div>
+        </div>
+
+        {/* Booking Summary */}
+        <section className="bg-stone-100/50 rounded-2xl border border-stone-200 p-5">
+          <MobileBookingSummary
+            selectedDate={selectedDate}
+            selectedSlot={selectedSlot}
+          />
         </section>
       </main>
+
+      {/* Fixed Bottom Payment Button */}
+      <div className="fixed bottom-0 left-0 right-0 p-4 bg-stone-50/80 backdrop-blur-sm z-20">
+        <div className="max-w-md mx-auto">
+          <MobilePaymentButton
+            selectedDate={selectedDate}
+            selectedSlot={selectedSlot}
+            onPaymentClick={handleBookingSubmit}
+            loading={isProcessing}
+            disabled={!selectedDate || !selectedSlot || isProcessing}
+          />
+        </div>
+      </div>
     </div>
   );
 };
