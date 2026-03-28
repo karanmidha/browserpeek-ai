@@ -275,7 +275,7 @@ const BookingPage: React.FC = () => {
         <h1 className="text-xl font-semibold leading-tight tracking-tight flex-1 text-center pr-10 text-primary font-display">Book Your Flow</h1>
       </header>
 
-      <main className="flex-1 pb-32 px-4">
+      <main className="flex-1 pb-6 px-4">
         {/* Hero Header */}
         <section className="pt-6 pb-4 text-center">
           <p className="text-stone-600 text-sm italic">"Yoga is the journey of the self, through the self, to the self."</p>
@@ -334,17 +334,15 @@ const BookingPage: React.FC = () => {
         </div>
 
         {/* Booking Summary */}
-        <section className="bg-stone-100/50 rounded-2xl border border-stone-200 p-5">
+        <section className="bg-stone-100/50 rounded-2xl border border-stone-200 p-5 mb-6">
           <MobileBookingSummary
             selectedDate={selectedDate}
             selectedSlot={selectedSlot}
           />
         </section>
-      </main>
 
-      {/* Fixed Bottom Payment Button */}
-      <div className="fixed bottom-0 left-0 right-0 p-4 bg-stone-50/80 backdrop-blur-sm z-20">
-        <div className="max-w-md mx-auto">
+        {/* Static Payment Button - Below Booking Summary */}
+        <section className="mb-6">
           <MobilePaymentButton
             selectedDate={selectedDate}
             selectedSlot={selectedSlot}
@@ -352,8 +350,8 @@ const BookingPage: React.FC = () => {
             loading={isProcessing}
             disabled={!selectedDate || !selectedSlot || isProcessing}
           />
-        </div>
-      </div>
+        </section>
+      </main>
     </div>
   );
 };
