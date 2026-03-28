@@ -266,13 +266,8 @@ const BookingPage: React.FC = () => {
   return (
     <div className="relative min-h-screen bg-stone-50">
       {/* Top Navigation */}
-      <header className="flex items-center p-4 justify-between sticky top-0 bg-stone-50/80 backdrop-blur-md z-10 border-b border-stone-200">
-        <div className="flex size-10 items-center justify-center rounded-full hover:bg-stone-200 transition-colors cursor-pointer text-primary">
-          <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
-          </svg>
-        </div>
-        <h1 className="text-xl font-semibold leading-tight tracking-tight flex-1 text-center pr-10 text-primary font-display">Book Your Flow</h1>
+      <header className="flex items-center p-4 justify-center sticky top-0 bg-stone-50/80 backdrop-blur-md z-10 border-b border-stone-200">
+        <h1 className="text-xl font-semibold leading-tight tracking-tight text-primary font-display">Book Your Flow</h1>
       </header>
 
       {/* Hero Header */}
