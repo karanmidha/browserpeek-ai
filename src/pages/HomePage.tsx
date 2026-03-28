@@ -32,7 +32,7 @@ const HomePage: React.FC = () => {
       <section className="relative h-[85vh] flex items-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img
-            src="/hero.png"
+            src="/images/hero-carousel.png"
             alt="Serene yoga session in a bright studio"
             className="w-full h-full object-cover"
             loading="eager"
