@@ -264,26 +264,23 @@ const BookingPage: React.FC = () => {
   }
 
   return (
-    <div className="relative flex h-auto min-h-screen w-full max-w-md mx-auto flex-col bg-stone-50 overflow-x-hidden">
+    <div className="relative min-h-screen bg-stone-50">
       {/* Top Navigation */}
-      <header className="flex items-center p-4 justify-between sticky top-0 bg-stone-50/80 backdrop-blur-md z-10 border-b border-stone-200">
-        <div className="flex size-10 items-center justify-center rounded-full hover:bg-stone-200 transition-colors cursor-pointer text-primary">
-          <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
-          </svg>
-        </div>
-        <h1 className="text-xl font-semibold leading-tight tracking-tight flex-1 text-center pr-10 text-primary font-display">Book Your Flow</h1>
+      <header className="flex items-center p-4 justify-center sticky top-0 bg-stone-50/80 backdrop-blur-md z-10 border-b border-stone-200">
+        <h1 className="text-xl font-semibold leading-tight tracking-tight text-primary font-display">Book Your Flow</h1>
       </header>
 
-      <main className="flex-1 pb-32 px-4">
-        {/* Hero Header */}
-        <section className="pt-6 pb-4 text-center">
+      {/* Hero Header */}
+      <section className="pt-6 pb-4 text-center">
+        <div className="max-w-md lg:max-w-6xl mx-auto px-4">
           <p className="text-stone-600 text-sm italic">"Yoga is the journey of the self, through the self, to the self."</p>
-        </section>
+        </div>
+      </section>
 
-        {/* Error Alert */}
-        {bookingError && (
-          <div className="bg-red-50 border border-red-200 rounded-lg p-4 mb-6">
+      {/* Error Alert */}
+      {bookingError && (
+        <div className="max-w-md lg:max-w-6xl mx-auto px-4 mb-6">
+          <div className="bg-red-50 border border-red-200 rounded-lg p-4">
             <div className="flex items-start">
               <svg className="w-5 h-5 text-red-500 mr-3 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
                 <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clipRule="evenodd" />
@@ -302,48 +299,71 @@ const BookingPage: React.FC = () => {
               </button>
             </div>
           </div>
-        )}
-
-        {/* Selection Section */}
-        <div className="bg-white rounded-2xl shadow-sm border border-stone-100 p-5 mb-6">
-          <h2 className="text-xl font-medium mb-4 flex items-center gap-2 text-stone-800">
-            <svg className="w-5 h-5 text-amber-600" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
-              <path d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5" strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
-            Select Date & Time
-          </h2>
-
-          {/* Mobile-Optimized Date Selection */}
-          <div className="mb-6">
-            <MobileCompactDateSelector
-              selectedDate={selectedDate}
-              onDateSelect={handleDateSelect}
-              disabled={isProcessing}
-            />
-          </div>
-
-          {/* Mobile-Optimized Time Slot Selection */}
-          <div>
-            <MobilePillTimeSlotSelector
-              selectedDate={selectedDate}
-              selectedSlot={selectedSlot}
-              onSlotSelect={handleSlotSelect}
-              disabled={isProcessing}
-            />
-          </div>
         </div>
+      )}
 
-        {/* Booking Summary */}
-        <section className="bg-stone-100/50 rounded-2xl border border-stone-200 p-5">
-          <MobileBookingSummary
-            selectedDate={selectedDate}
-            selectedSlot={selectedSlot}
-          />
-        </section>
+      {/* Main Content */}
+      <main className="max-w-md lg:max-w-6xl mx-auto px-4 pb-32 lg:pb-24">
+        {/* Responsive Grid Layout */}
+        <div className="lg:grid lg:grid-cols-[3fr,2fr] lg:gap-8 xl:gap-12 lg:items-start">
+
+          {/* Left Column: Date & Time Selection (Mobile: stacked, Desktop: 60% width) */}
+          <div className="lg:order-1">
+            <div className="bg-white rounded-2xl shadow-sm border border-stone-100 p-5 mb-6 lg:mb-0">
+              <h2 className="text-xl font-medium mb-4 flex items-center gap-2 text-stone-800">
+                <svg className="w-5 h-5 text-amber-600" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
+                  <path d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+                Select Date & Time
+              </h2>
+
+              {/* Date Selection */}
+              <div className="mb-6">
+                <MobileCompactDateSelector
+                  selectedDate={selectedDate}
+                  onDateSelect={handleDateSelect}
+                  disabled={isProcessing}
+                />
+              </div>
+
+              {/* Time Slot Selection */}
+              <div>
+                <MobilePillTimeSlotSelector
+                  selectedDate={selectedDate}
+                  selectedSlot={selectedSlot}
+                  onSlotSelect={handleSlotSelect}
+                  disabled={isProcessing}
+                />
+              </div>
+            </div>
+          </div>
+
+          {/* Right Column: Booking Summary (Mobile: stacked, Desktop: 35% width) */}
+          <div className="lg:order-2 lg:sticky lg:top-24">
+            <div className="bg-stone-100/50 rounded-2xl border border-stone-200 p-5 mb-6 lg:mb-0">
+              <MobileBookingSummary
+                selectedDate={selectedDate}
+                selectedSlot={selectedSlot}
+              />
+            </div>
+
+            {/* Desktop Payment Button (static position) */}
+            <div className="hidden lg:block mt-6">
+              <MobilePaymentButton
+                selectedDate={selectedDate}
+                selectedSlot={selectedSlot}
+                onPaymentClick={handleBookingSubmit}
+                loading={isProcessing}
+                disabled={!selectedDate || !selectedSlot || isProcessing}
+              />
+            </div>
+          </div>
+
+        </div>
       </main>
 
-      {/* Fixed Bottom Payment Button */}
-      <div className="fixed bottom-0 left-0 right-0 p-4 bg-stone-50/80 backdrop-blur-sm z-20">
+      {/* Mobile Fixed Bottom Payment Button */}
+      <div className="fixed bottom-0 left-0 right-0 p-4 bg-stone-50/80 backdrop-blur-sm z-20 lg:hidden">
         <div className="max-w-md mx-auto">
           <MobilePaymentButton
             selectedDate={selectedDate}
