@@ -4,7 +4,7 @@ import type { NavigationItem } from '../types';
 
 const navigationItems: NavigationItem[] = [
   { label: 'Contact Us', href: '/contact' },
-  { label: 'Book Session', href: '/booking' },
+  { label: 'Book a Session', href: '/booking' },
 ];
 
 interface LayoutProps {
@@ -76,7 +76,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
               </li>
               <li>
                 <Link to="/booking" className={`hover:text-wood-500 transition-colors ${location.pathname === '/booking' ? 'text-wood-500' : ''}`}>
-                  Book a Class
+                  Book a Session
                 </Link>
               </li>
             </ul>
@@ -164,21 +164,30 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
         {children}
       </main>
 
-      {/* Footer - H-06: Streamlined to Contact info only with reduced padding */}
+      {/* Footer - H-06: Streamlined to Contact info only with optimized padding */}
       <footer className="bg-secondary-800 text-white">
-        <div className="container mx-auto px-4 py-6">
-          <div className="flex flex-col items-center space-y-4">
+        <div className="container mx-auto px-6 py-8 lg:py-12">
+          <div className="flex flex-col items-center space-y-6">
             {/* Contact Info Only */}
             <div className="text-center">
-              <div className="flex flex-col sm:flex-row sm:space-x-6 space-y-1 sm:space-y-0 text-accent-200">
-                <div>📧 info@omyogvidya.com</div>
-                <div>📞 +91 98765 43210</div>
-                <div>📍 Mumbai, Maharashtra</div>
+              <div className="flex flex-col sm:flex-row sm:space-x-8 lg:space-x-12 space-y-3 sm:space-y-0 text-accent-200">
+                <div className="flex items-center justify-center space-x-2">
+                  <span>📧</span>
+                  <span>info@omyogvidya.com</span>
+                </div>
+                <div className="flex items-center justify-center space-x-2">
+                  <span>📞</span>
+                  <span>+91 98765 43210</span>
+                </div>
+                <div className="flex items-center justify-center space-x-2">
+                  <span>📍</span>
+                  <span>Mumbai, Maharashtra</span>
+                </div>
               </div>
             </div>
 
             {/* Copyright */}
-            <div className="text-center text-secondary-200 text-sm">
+            <div className="text-center text-secondary-200 text-sm border-t border-secondary-700 pt-4 w-full">
               <p>&copy; 2026 OmYogVidya. All rights reserved.</p>
             </div>
           </div>
